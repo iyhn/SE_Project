@@ -1,5 +1,5 @@
 import React from 'react';
-import './Loading.css'
+import '../componentscss/Loading.css'
 
 const Loading = () => (
     <div style={{zIndex:100, position:'fixed', width:'100vw', height:'100vh', backgroundColor:'rgba(0,0,0,0.5)'}}>

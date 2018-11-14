@@ -2,19 +2,21 @@ import React from 'react';
 import '../App.css';
 import api from '../api/api';
 import HeaderContainer from './HeaderContainer';
-import Loading from '../Components/Loading';
+import Loading from '../Components/componentsjs/Loading';
+import ProfileBox from '../Components/componentsjs/ProfileBox';
+import './Home.css';
 
 class App extends React.Component {
   
   constructor(props) {
     super(props);
     this.state = {
-      fetched: false
+      fetched: true
     }
   }
 
   componentDidMount (){
-    api.profile().then( () => this.setState({fetched: true}));
+   // api.profile().then( () => this.setState({fetched: true}));
   };
 
   render() {
@@ -23,20 +25,20 @@ class App extends React.Component {
         {this.state.fetched ? null : <Loading/>}
         <HeaderContainer/>
         
-        <div style={{backgroundColor : "rgb(237,245,250)", width: '100vw', height: '100vh'}}>
-          <div style={{display:'grid', gridTemplateColumns: 'auto auto auto auto',gridTemplateRows: 'auto', gridColumnGap:'15px', gridRowGap:'10px', width: '1100px', height: '91%', margin:'0 auto', paddingTop: '7vh'}}>
-            <div style={{display:'grid', gridTemplateColumns: 'auto',gridTemplateRows: 'auto auto auto auto', gridRowGap:'15px'}}>
-              <div style={{backgroundColor : "white", boxShadow: '0px 1px 10px rgba(0,0,0,0.1)'}}>
-
+        <div class='homePage'>
+          <div class='container'>
+            <div class='subcontainer'>
+              <div class='profilebox'>
+                <ProfileBox/>
               </div>
-              <div style={{backgroundColor : "white", boxShadow: '0px 1px 10px rgba(0,0,0,0.1)', gridRowStart:2, gridRowEnd:4}}>
+              <div class='recommendtask'>
 
               </div>
             </div>
-            <div style={{backgroundColor : "white", gridColumnStart:2, gridColumnEnd:4, boxShadow: '0px 0px 10px rgba(0,0,0,0.1)'}}>
+            <div class='bodybox'>
 
             </div>
-            <div style={{backgroundColor : "white", boxShadow: '0px 0px 10px rgba(0,0,0,0.1)'}}>
+            <div class='recommendCom'>
 
             </div>
           </div>
