@@ -8,6 +8,8 @@ class Login extends React.Component{
             <input type='password' id='password' placeholder='password'></input>
             <button onClick={() => api.login({username: document.getElementById('username').value,
                 password: document.getElementById('password').value})}> login </button>
+            <button onClick={() => api.signup({username: document.getElementById('username').value,
+                password: document.getElementById('password').value})}> signup </button>
         </div>
     )
 }

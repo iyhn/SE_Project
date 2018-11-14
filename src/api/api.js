@@ -22,7 +22,8 @@ const call = (endpoint, req, action) => {
                     if(body === 'jwt expired'){
                         redirectLogin();
                     }
-                    action(body);
+                    else if(res.ok) action(body)
+                    else alert(body)
                 }
             )
         )
@@ -45,6 +46,17 @@ api.login = (body) => (
         method: 'POST',
         body: body
     }, authAction)
+)
+
+api.signup = (body) => (
+    call('/auth/signup', {
+        method: 'POST',
+        body: body
+    }, authAction)
+)
+
+api.logout = () => (
+    redirectLogin()
 )
 
 api.profile = () => (
