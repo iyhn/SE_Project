@@ -1,5 +1,5 @@
 import React from 'react';
-import Twitter from '../twitter.png';
+import Twitter from '../../twitter.png';
 
 const Header = ({onLogout}) => (
     <div style={{position: 'fixed', backgroundColor : "white", width: '100vw', height: '6vh', boxShadow: '0px 1px 10px rgba(0,0,0,0.15)'}}>

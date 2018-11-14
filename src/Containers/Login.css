@@ -1,0 +1,22 @@
+.loginPage{
+    position: absolute;
+}
+
+.inputbox{
+    width: 20vw;
+    height: 4vh;
+    border-radius: 7px;
+    margin-top: 3%;
+}
+
+.loginbtn{
+    border-radius: 25px;
+    width: 20%;
+    height: 10%;
+}
+
+.inputCont{
+    position: absolute;
+    top: 30vh;
+    left: 60vw;
+}
