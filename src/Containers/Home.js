@@ -4,6 +4,7 @@ import api from '../api/api';
 import HeaderContainer from './HeaderContainer';
 import Loading from '../Components/componentsjs/Loading';
 import ProfileBox from '../Components/componentsjs/ProfileBox';
+import SearchBox from '../Components/componentsjs/SearchBox';
 import './Home.css';
 
 class App extends React.Component {
@@ -32,11 +33,11 @@ class App extends React.Component {
                 <ProfileBox/>
               </div>
               <div class='recommendtask'>
-
+               
               </div>
             </div>
             <div class='bodybox'>
-
+              <SearchBox/>
             </div>
             <div class='recommendCom'>
 
