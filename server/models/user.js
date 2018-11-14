@@ -13,9 +13,9 @@ user.find = (username) => (
     })
 )
 
-user.add = (body) => (
+user.add = (username,password) => (
     new Promise ((resolve, reject) => {
-        connection.query('INSERT INTO user (username, password) values (?,?)',[body.username,body.password], (error,result) => {
+        connection.query('INSERT INTO user (username, password) values (?,?)',[username,password], (error,result) => {
             if (error) return reject(error);
             resolve(result);
         })
