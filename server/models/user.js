@@ -1,6 +1,5 @@
 const connection = require('../db');
 
-connection.connect();
 
 user = {}
 
