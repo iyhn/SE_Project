@@ -1,0 +1,13 @@
+.content {
+    border-bottom:  2px solid ;
+    border-color: rgb(237,245,250) ;
+    width: 515px;
+    height: 110px ; 
+    padding:20px 20px ;
+    font-size: 0.8em ;
+    transition: 0.3s;
+}
+
+.content:hover{
+    background-color:rgb(237,245,250);
+}

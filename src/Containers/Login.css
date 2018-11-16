@@ -1,22 +1,223 @@
-.loginPage{
+.bodyLogin input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 0px;
+}
+.bodyLogin button{
+    margin-right: 5px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    border: 0px;
+}
+.bodyLogin button:hover{
+    color: white;
+    background: gray;
+}
+
+a:link{
+    color: gray;
+    text-decoration: none;
+}
+a:visited{
+    color: gray;
+}
+a:hover{
+    color: white;
+}
+
+bodyLogin{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+.background{
+    position: relative;
+    transition: 0.6s;
+    left: -50vw;
+    width: 150vw;
+    height: 100vh;
+}
+.text-background-1{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 75vw;
+    height: 100%;
+    background: white;
+    display: table;
+}
+.text-1{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 700%;
+    font-weight: 700;
+    text-transform: uppercase; 
+}
+.text-background-2{
+    position: absolute;
+    top: 0px;
+    left: 75vw;
+    width: 75vw;
+    height: 100%;
+    background: black;
+    display: table;
+}
+.text-2{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 700%;
+    font-weight: 700;
+    text-transform: uppercase; 
+}
+.signup-area{
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 13%;
+    width: 350px;
+    color: white;
+}
+.signup-area input{
+    background-color: black;
+}
+.login-area{
+    position: absolute;
+    top: 0px;
+    right: 15%;
+    width: 250px;
+    height: 100%;
+    display: table;
+}
+.login{
+    display: table-cell; 
+    right: 25%;
+    vertical-align: middle;
+}
+.signup{
+    vertical-align: middle;
+}
+.username{
+    
+}
+.password{
+
+}
+.forgot{
+    color: white;
+    margin: 8px;
+    font-size: 0.7em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.button-area{
+    margin-top: 10px;
+}
+.log-in{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    background: white;
+    color:black;
+    font-weight: 700;
+}
+.sign-up{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    background: rgb(42, 42, 42);
+    color:white;
+    font-weight: 700;
+}
+.login100-form-social-item {
+width: 36px;
+height: 36px;
+font-size: 18px;
+color: white;
+border-radius: 50%;
+background: #3b5998;
+}
+
+.login100-form-social-item:hover {
+background: #333333;
+color: #fff;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #fff;
+}
+
+.social-login{
     position: absolute;
 }
 
-.inputbox{
-    width: 20vw;
-    height: 4vh;
-    border-radius: 7px;
-    margin-top: 3%;
+.flex-c-m {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -ms-align-items: center;
+    align-items: center;
 }
 
-.loginbtn{
-    border-radius: 25px;
-    width: 20%;
-    height: 10%;
+.sign-up-area{
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    left: auto;
+    right: auto;
+    background: white;
+    width: fit-content;
+    height: 500px;
+    padding: 50px;
+    border-radius: 30px;
+}
+.sign-up-text{
+    position: relative;
+    margin-bottom: 5px;
+    left: 0px;
+    top: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-size: 200%;
+    font-weight: 700;
+    text-align: left;
+}
+.line-1{
+    position: relative;
+    margin: 10px;
 }
 
-.inputCont{
-    position: absolute;
-    top: 30vh;
-    left: 60vw;
+.sign-up-area textarea{
+    width: 100%;
+}
+
+.signup td input {
+    color: white;
+}
+
+.signup td textarea {
+    color: white;
 }

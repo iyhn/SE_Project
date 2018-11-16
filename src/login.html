@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border-radius: 10px;
+        border: 0px;
+    }
+    button{
+        margin-right: 5px;
+        margin-bottom: 10px;
+        border-radius: 30px;
+        border: 0px;
+    }
+    button:hover{
+        background: gray;
+    }
+
+    a:link{
+        color: gray;
+        text-decoration: none;
+    }
+    a:visited{
+        color: gray;
+    }
+    a:hover{
+        color: white;
+    }
+
+    body{
+        background: black;
+    }
+    .text-background-1{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+        width: 25%;
+        height: 100%;
+        background: white;
+        display: table;
+    }
+    .text-1{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: right;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 700%;
+        font-weight: 700;
+        text-transform: uppercase; 
+    }
+    .text-background-2{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 75%;
+        height: 100%;
+        background: black;
+        display: table;
+    }
+    .text-2{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 700%;
+        font-weight: 700;
+        text-transform: uppercase; 
+    }
+
+    .login-area{
+        position: absolute;
+        top: 0px;
+        right: 30%;
+        width: 250px;
+        height: 100%;
+        display: table;
+    }
+    .login{
+        display: table-cell; 
+        right: 25%;
+        vertical-align: middle;
+    }
+    .username{
+        
+    }
+    .password{
+
+    }
+    .forgot{
+        color: white;
+        margin: 3px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .button-area{
+        
+    }
+    .log-in{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 9px;
+        padding-bottom: 9px;
+        background: white;
+        color:black;
+        font-weight: 700;
+    }
+    .sign-up{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 9px;
+        padding-bottom: 9px;
+        background: rgb(42, 42, 42);
+        color:white;
+        font-weight: 700;
+    }
+    .login100-form-social-item {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    color: white;
+    border-radius: 50%;
+    background: #3b5998;
+    }
+
+    .login100-form-social-item:hover {
+    background: #333333;
+    color: #fff;
+    }
+
+    .fa {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #fff;
+    }
+
+    .social-login{
+        position: absolute;
+    }
+
+    .flex-c-m {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        -ms-align-items: center;
+        align-items: center;
+}
+</style>
+<body class="body">
+    <div class="background">
+        <div class="text-background-1">
+            <div class="text-1">WOR</div>
+        </div>
+        <div class="text-background-2">
+            <div class="text-2">KER</div>
+        </div>
+    </div>
+    <div class="login-area">
+        <div class="login">
+            <div class="username">
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="password">
+                <input type="text" name="password" placeholder="Password">
+            </div>
+            <div class="forgot">
+                <a href="http://">Forgot password?</a>
+            </div>
+            <div class="button-area">
+                <button type="submit" class="log-in">Log in</button>
+                <button type="button" class="sign-up" onclick="window.location.href='http://'" value="Sign Up">Sign up</button>
+                <div class="social-login">
+                        <a href="#" class="login100-form-social-item flex-c-m bg1 ">
+                                <i class="fa fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                </div>
+			</div>
+				
+        </div>
+    </div>
+
+    
+</body>
+</html>

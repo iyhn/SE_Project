@@ -1,7 +1,7 @@
 import history from '../history';
 
-const call = (endpoint, req, action) => {
-    action = action ? action : ()=>{console.log('sadskdfdjdnfjid')};
+const call = (endpoint, req) => {
+    // action = action ? action : ()=>{console.log('sadskdfdjdnfjid')};
     if(req && req.body){
         req.body = JSON.stringify(req.body);
     }
@@ -15,29 +15,31 @@ const call = (endpoint, req, action) => {
     };
 
     return fetch(endpoint, {...req, headers})
-        .then(
-            res => res.json()
-            .then(
-                body => {
-                    if(body === 'jwt expired'){
-                        redirectLogin();
-                    }
-                    else if(res.ok) action(body)
-                    else alert(body)
-                }
-            )
-        )
+        // .then(
+        //     res => {console.log(res);res.json()
+        //     .then(
+        //         body => {
+        //             console.log(body)
+        //             if(body === 'jwt expired'){
+        //                 redirectLogin();
+        //             }
+        //             else if(res.ok) action(body)
+        //             else alert(body)
+        //         }
+        //     )}
+        // )
 };
 
 const api = {};
 
-const redirectLogin = () => {
+api.redirectLogin = () => {
     localStorage.removeItem('token');
     history.push('/login');
 }
 
-const authAction = (body) => {
+api.authAction = (body) => {
     localStorage.setItem('token',body.token);
+    localStorage.setItem('id', body.id)
     history.push('/');
 }
 
@@ -45,23 +47,28 @@ api.login = (body) => (
     call('/auth/login', {
         method: 'POST',
         body: body
-    }, authAction)
+    })
 )
 
 api.signup = (body) => (
     call('/auth/signup', {
         method: 'POST',
         body: body
-    }, authAction)
+    })
 )
 
-api.logout = () => (
-    redirectLogin()
-)
 
-api.profile = () => (
-    call('/profile/',{
+
+api.profile = (id) => (
+    call(`/profile/?id=${id}`,{
         method: 'GET'
+    })
+)
+
+api.editProfile = (id,body) => (
+    call(`/profile/?id=${id}`,{
+        method: 'PUT',
+        body: body
     })
 )
 
