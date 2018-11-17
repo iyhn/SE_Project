@@ -1,4 +1,4 @@
-.bodyLogin input {
+.login-area input {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -83,9 +83,8 @@ bodyLogin{
     position: absolute;
     transform: translateY(-50%);
     top: 50%;
-    left: 13%;
-    width: 350px;
-    color: white;
+    left: 10%;
+    width: 500px;
 }
 .signup-area input{
     background-color: black;
@@ -196,12 +195,12 @@ color: #fff;
 }
 .sign-up-text{
     position: relative;
-    margin-bottom: 5px;
+    margin-bottom: 30px;
     left: 0px;
     top: 0px;
     font-family: Arial, Helvetica, sans-serif;
     color: black;
-    font-size: 200%;
+    font-size: 250%;
     font-weight: 700;
     text-align: left;
 }
@@ -210,14 +209,113 @@ color: #fff;
     margin: 10px;
 }
 
-.sign-up-area textarea{
-    width: 100%;
+.signup{
+
 }
 
-.signup td input {
-    color: white;
+.divSignupInput {
+    position: relative;
+    padding-right: px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background-color: black;
+    width: 90%;
+}
+
+.signup td{
+    position: relative;
+}
+
+.signup .placeholder{
+    position: absolute;
+    left: 0;
+    top: 18px;
+    color:grey;
+    font-size: 1em;
+    pointer-events: none;
+    transform-origin: 0 0;
+    transition: 0.3s;
+}
+
+.signup input {
+    font-size: 1.2em;
+    width: 80%;
+    border: none;
+    padding: 15px 0px;
+    color: black;
+    background-color: white;
+}
+
+.signup input:not(:placeholder-shown) + .placeholder{
+    transform: translateY(-24px)scale(0.7)
+}
+
+.signup input:focus + .placeholder{
+    transform: translateY(-24px)scale(0.7)
+}
+
+.signup textarea:not(:placeholder-shown) + .placeholderT{
+    left: 5px;
+    transform: translateY(-32px)scale(0.8)
+}
+
+.signup textarea:focus + .placeholderT{
+    left: 5px;
+    transform: translateY(-32px)scale(0.8)
+}
+
+
+.signup .placeholderT{
+    position: absolute;
+    left: 10px;
+    top: 35px;
+    color:grey;
+    font-size: 1em;
+    pointer-events: none;
+    transform-origin: 0 0;
+    transition: 0.3s;
 }
 
 .signup td textarea {
-    color: white;
+    border-radius: 5px;
+    resize: none;
+    padding: 10px;
+    color: black;
+    height: 150px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    width: 90.5%;
+    outline: none;
+    font-size: 1.2em;
+}
+
+.submit{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 9px 15px;
+    background: black;
+    color:white;
+    font-weight: 700;
+    float: right;
+}
+
+.cancle2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 9px 15px;
+    background: rgb(100, 100, 100);
+    color:white;
+    font-weight: 700;
+    float: right;
+}
+
+.divSignupButton{
+    padding-right: 12px
 }

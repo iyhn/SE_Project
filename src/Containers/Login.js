@@ -65,30 +65,90 @@ class Login extends React.Component{
                         <table className='signup' style={{tableLayout:'fixed', width:'100%'}}>
                             <tbody>
                                 <tr>
-                                    <td><input id="signupFirstname" style={{color:'white'}} class="in" type="text" name="firstname" placeholder="Firstname"/></td>
-                                    <td><input id="signupLastname" class="in" type="text" name="lastname" placeholder="Lastname"/></td>
+                                    <td>
+                                        <div className="divSignupInput">
+                                            <input id='signupUsername' type="text" name="username" placeholder="&nbsp;"/>
+                                            <span className="placeholder">Username</span>
+                                            <span className="border"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className="divSignupInput">
+                                            <input id='signupEmail' type="email" name="e-mail" placeholder="&nbsp;"/>
+                                            <span className="placeholder">Email</span>
+                                            <span className="border"></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div className="divSignupInput">
+                                            <input id='signupPassword' type="password" name="password1" placeholder="&nbsp;"/>
+                                            <span className="placeholder">Password</span>
+                                            <span className="border"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className="divSignupInput">
+                                            <input type="password" name="password2" placeholder="&nbsp;"/>
+                                            <span className="placeholder">Confirm Password</span>
+                                            <span className="border"></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div className="divSignupInput">
+                                            <input id="signupFirstname" style={{color:'black'}} class="in" type="text" name="firstname"placeholder="&nbsp;"/>
+                                            <span className="placeholder">Firstname</span>
+                                            <span className="border"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className="divSignupInput">
+                                            <input id="signupLastname" class="in" type="text" name="lastname"placeholder="&nbsp;"/>
+                                            <span className="placeholder">Lastname</span>
+                                            <span className="border"></span>
+                                        </div>
+                                    </td>
                                 </tr> 
                                 <tr>
-                                    <td><input id="signupDob" type="date" name="dateOfBirth" placeholder="Date of Bith"/></td>
-                                    <td><input id="signupNationality" type="text" name="nationality" placeholder="Nationality"/></td>
+                                    <td>
+                                        <div className="divSignupInput">
+                                            <input id="signupDob" type="date" name="dateOfBirth"placeholder="&nbsp;" />
+                                            <span className="placeholder">Date of birth</span>
+                                            <span className="border"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className="divSignupInput">
+                                            <input id="signupNationality" type="text" name="nationality"placeholder="&nbsp;" />
+                                            <span className="placeholder">Nationality</span>
+                                            <span className="border"></span>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colSpan='2'>
-                                        <textarea id="signupAddress" style={{width:'98%',height:'100px',resize:'none', borderRadius:'7px', backgroundColor:'black'}} placeholder="Address"></textarea>
+                                        <textarea id="signupAddress" placeholder="&nbsp;"></textarea>
+                                        <span className="placeholderT">Address</span>
                                     </td>
                                 </tr>
                                 {/* <div class="sector-line"></div> */}
+                                
                                 <tr>
-                                    <td><input id='signupUsername' type="text" name="username" placeholder="Username"/></td>
-                                    <td><input id='signupEmail' type="email" name="e-mail" placeholder="E-mail"/></td>
-                                </tr>
-                                <tr>
-                                    <td><input id='signupPassword' type="password" name="password1" placeholder="Password"/></td>
-                                    <td><input type="password" name="password2" placeholder="Confirm Password"/></td>
-                                </tr>
-                                <tr>
-                                    <td><button type="button" class="cancle" onClick={this.switchLogin} value="Cancle">Cancel</button></td>
-                                    <td><button type="submit" class="log-in" onClick={this.signup}>Submit</button></td>
+                                    <td>
+                                        <div className="divSignupInput">
+                                            
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className="divSignupButton">
+                                            <button type="submit" class="submit" onClick={this.signup}>Submit</button>
+                                            <button type="button" class="cancle2" onClick={this.switchLogin} value="Cancle">Cancel</button>
+                                          
+                                        </div>
+                                    </td>
                                 </tr>
                                 
                             </tbody>
