@@ -1,6 +1,6 @@
 import React from 'react';
 import './css/Profile.css';
-import comment from '../comment.png';
+import dot from '../dot.png';
 import heart from '../heart2.png';
 import interLogo from '../inter.jpg';
 import exe from '../exe.jpg';
@@ -9,6 +9,7 @@ import './css/SearchBox.css';
 
 const content = (img, poster) => (
     <div className='content' id={poster}>
+        <img src={dot} className='dot'/>
         <div className='contentContainer' id={poster}>
             
             {/* <table style={{tableLayout: 'fixed', width:'100%'}}>
