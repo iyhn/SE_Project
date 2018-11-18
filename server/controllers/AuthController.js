@@ -12,7 +12,7 @@ exports.signin = (req, res, next) => {
                     const token = jwt.sign({
                         id : result[0].id,
                         username: req.body.username
-                    }, 'secret', {expiresIn : 120})
+                    }, 'secret', {expiresIn : 12000})
                     console.log(token)
                     res.json({id:result[0].id, token});
                 }else {

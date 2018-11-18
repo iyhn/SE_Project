@@ -4,7 +4,7 @@
     height: 2px;
     background: rgba(173, 173, 173, 0.513);
 }
-.profile button{
+.profile-area button{
     margin-right: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -54,7 +54,7 @@
     width: fit-content;
     height: fit-content;
     padding: 50px;
-    border-radius: 30px;
+    border-radius: 7px;
     display: table;
     
 }
@@ -73,7 +73,7 @@
     position: relative;
     margin: 10px;
 }
-.profile input {
+.profile-area input {
     font-size: 1em;
     border: none;
 }

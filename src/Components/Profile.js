@@ -1,9 +1,9 @@
 import React from 'react';
-import '../componentscss/Profile.css';
-import nuch from '../../nuch.jpg';
-import Cross from '../../cross.png';
+import './css/Profile.css';
+import nuch from '../nuch.jpg';
+import Cross from '../cross.png';
 import moment from 'moment'
-import api from '../../api/api';
+import api from '../api/api';
 
 const cancle = (back) => {
     
@@ -45,10 +45,7 @@ const edit = (setMainState,back) => {
 
 const Profile = ({back, setMainState, ...props}) => {
     let picpath = '../../' + 'code.jpg';
-    return (<div className='profile' style={{ padding: '20px' }}>
-        <form oninput=""></form>
-
-        <div class="profile-space">
+    return (
             <div class="profile-area" >
                 <div style={{float:'right',zIndex:1000}} >
                     
@@ -120,8 +117,7 @@ const Profile = ({back, setMainState, ...props}) => {
                 </div>
 
             </div>
-        </div>
-    </div>)
+    )
 }
 
 export default Profile;

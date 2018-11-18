@@ -1,10 +1,10 @@
 .homePage{
     position: relative;
     background-color: rgb(237,245,250);
-    width: 300vw;
+    width: 100vw;
     height: 100vh;
     transition: 0.6s;
-    left: -100vw;
+    /* left: -100vw; */
 }
 
 .profileContainer{
@@ -15,7 +15,7 @@
 
 .midContainer{
     position: absolute;
-    left:100vw;
+    /* left:100vw; */
     width: 100vw;
 }
 
@@ -25,13 +25,13 @@
     grid-template-rows: auto;
     grid-column-gap: 15px;
     grid-row-gap: 10px;
-    width: 1100px;
+    width: 1125px;
     margin: 0 auto;
     padding-top: 63px;
 }
 
 .leftContainer{
-
+    border-radius: 5px;
 }
 
 .profilebox{
@@ -46,10 +46,10 @@
 }
 
 .bodyContainer{
-    background-color : white;
+    /* background-color : white; */
     grid-column-start:2;
     grid-column-end: 4;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    /* box-shadow: 0px 0px 10px rgba(0,0,0,0.1); */
 }
 
 .rightContainer{

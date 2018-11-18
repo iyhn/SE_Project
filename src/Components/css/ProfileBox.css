@@ -1,0 +1,32 @@
+.editHover {
+    position: fixed;
+    opacity: 1;
+    transition: 0.3s;
+    z-index: 1000;
+    width: 270px;
+    height: 200px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.editHover:hover{
+    background-color: rgba(0,0,0,0.4)
+}
+
+.editHover:hover::before{
+    content: 'View profile';
+    z-index: 1001;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%)translateY(-50%);
+    opacity: 1;
+    color: white;
+}
+
+.outter{
+    background-color: white;
+    width: 270px;
+    height: 275px;;
+    transition:0.3s;
+}
