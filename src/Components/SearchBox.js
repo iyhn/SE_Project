@@ -12,21 +12,23 @@ const content = (img, poster) => (
         <img src={dot} className='dot'/>
         <div className='contentContainer' id={poster}>
             
-            {/* <table style={{tableLayout: 'fixed', width:'100%'}}>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img src={img} style={{width:'100%', borderRadius:'50%'}}/>
-                        </td>
-                        <td colSpan="4" style={{paddingLeft:'20px'}}>
-                        {poster} <br/>
-                        หน้าที่<br/>
-                        รายได้ <br/>
-                        หมายเหตุ
-                        </td>
-                    </tr>
-                </tbody>
-            </table> */}
+            <div className='contentsize'>
+                    <div className='logobox'>
+                        <img src={img} className='logo'/>
+                    </div>
+                <div className='jobdetailbox'>
+                    <div className='headbox'>
+                            <div className='jobhead'>Job :</div>
+                            <div className='heads'>Wage :</div>
+                            <div className='heads'>Position :</div>
+                    </div>
+                    <div className='detailbox'>
+                        <div className='jobdetail'>Cut down tree</div>
+                        <div className='detail'>100000$</div>
+                        <div className='detail'>Carpenter</div>
+                    </div>
+                </div>
+            </div>
             <div className='border'/>
             <div className='author'>
                 <div style={{position:'relative', width:'100%'}}>
