@@ -5,7 +5,7 @@ import Cross from '../cross.png';
 import moment from 'moment'
 import api from '../api/api';
 
-const cancle = (back) => {
+const cancel = (back) => {
     
     if(!document.getElementsByName('detail')[0].disabled){
         for(var i=0;i<document.getElementsByName('detail').length;i++){
@@ -36,7 +36,7 @@ const edit = (setMainState,back) => {
         }).then((res)=>{
             res.json().then((body)=>{
                 setMainState(body)
-                cancle(back);
+                cancel(back);
                 back();
             })
         })
@@ -112,7 +112,7 @@ const Profile = ({back, setMainState, ...props}) => {
 
 
                 <div class="buttom-area">
-                    <button type="button" class="cancle" onClick={()=>cancle(back)} value="Cancle">Cancle</button>
+                    <button type="button" class="cancel" onClick={()=>cancel(back)} value="Cancel">Cancel</button>
                     <button id='edit' type="button" class="edit" onClick={()=>edit(setMainState,back)}>Edit</button>
                 </div>
 

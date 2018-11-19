@@ -15,7 +15,7 @@
     background: gray;
 }
 
-.cancle:hover{
+.cancel:hover{
     color:grey;
 }
 
@@ -99,7 +99,7 @@
     text-align: right;
     top: 20px;
 }
-.cancle{
+.cancel{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     padding-left: 15px;

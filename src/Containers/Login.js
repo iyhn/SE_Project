@@ -115,7 +115,7 @@ class Login extends React.Component{
                                 <tr>
                                     <td>
                                         <div className="divSignupInput">
-                                            <input id="signupDob" type="date" name="dateOfBirth"placeholder="&nbsp;" />
+                                            <input id="signupDob" type="text" name="dateOfBirth"placeholder="&nbsp;" id='date' onFocus={()=>document.getElementById('date').type='date'}/>
                                             <span className="placeholder">Date of birth</span>
                                             <span className="border"></span>
                                         </div>
@@ -145,7 +145,7 @@ class Login extends React.Component{
                                     <td>
                                         <div className="divSignupButton">
                                             <button type="submit" class="submit" onClick={this.signup}>Submit</button>
-                                            <button type="button" class="cancle2" onClick={this.switchLogin} value="Cancle">Cancel</button>
+                                            <button type="button" class="cancel2" onClick={this.switchLogin} value="Cancel">Cancel</button>
                                           
                                         </div>
                                     </td>
