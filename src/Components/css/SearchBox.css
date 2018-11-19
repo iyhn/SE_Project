@@ -10,6 +10,23 @@
     transition: 0.3s;
 }
 
+.back{
+    width: 515px;
+    height: 250px;
+}
+
+.search{
+    overflow: hidden;
+    position: relative;
+    border-radius: 7px;
+    background-color: white;
+    margin-bottom: 10px;
+    width: 515px;
+    height: 75px ; 
+    padding:20px 20px ;
+    transition: 0.1s;
+}
+
 /* .content:hover{
     background-color:rgb(237,245,250);
 } */

@@ -82,7 +82,7 @@ class App extends React.Component {
                 </div>
                 <div className='bodyContainer'>
                   <div>
-                    <SearchBox/>
+                    <SearchBox {...this.state} openModal={this.openModal}/>
                   </div>
                 </div>
                 <div className='rightContainer'>
