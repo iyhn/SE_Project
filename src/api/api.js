@@ -72,4 +72,20 @@ api.editProfile = (id,body) => (
     })
 )
 
+api.postTask = (body) => (
+    call(`/task`, {
+        method: 'POST',
+        body: body
+    })
+)
+
+api.fetchTask = () => (
+    call('/task/all', {
+        
+    })
+)
+
+api.search = (keyword) => (
+    call(`/task/search/?keyword=${keyword}`)
+)
 export default api;

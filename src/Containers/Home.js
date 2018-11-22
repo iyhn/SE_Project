@@ -26,15 +26,22 @@ class App extends React.Component {
         if(body === 'jwt expired'){
           api.redirectLogin();
         }
-        this.setState({fetched: true,...body})
+        this.setState({fetched: true,profile:body})
        
       })
     })
-   
+    api.fetchTask().then((res)=>{
+      res.json().then(body=>{
+        if(body === 'jwt expired'){
+          api.redirectLogin();      }
+        this.setState({fetched: true,task:body})
+      })
+    })
   };
 
   setMainState = (state) => {
-    this.setState(state)
+    console.log('dd')
+    this.setState(state,()=>console.log(this.state))
   }
 
   viewProfile = () => {
@@ -59,12 +66,21 @@ class App extends React.Component {
     }
   }
 
+  
+  
+  reset = () =>{
+    let list = document.getElementsByName('postInput');
+    for(let i=0;i<list.length;i++){
+        list[i].value=null;
+    }
+}
+
   render() {
     return (
-      <div style={{backgroundColor : "rgb(250,246,237)", width: '100vw', height: '100vh'}}>
+      <div onClick={(e) => {if(e.target.name != 'postInput'){document.getElementById('search').style.height='75px';this.reset()}}} style={{backgroundColor : "rgb(237,245,250)", width: '100vw', height: '100vh'}}>
         {this.state.fetched ? null : <Loading/>}
-        {this.state.modal ? <Modal component={this.state.modal} closeModal={this.closeModal} {...this.state}/> : null}
-        <HeaderContainer/>
+        {this.state.modal ? <Modal setMainState={this.setMainState} component={this.state.modal} closeModal={this.closeModal} {...this.state}/> : null}
+        <HeaderContainer setMainState={this.setMainState}/>
         <div style={{width:'100vw', overflow:'scroll'}}>
           <div className='homePage'>
             {/* <div className='profileContainer'>
@@ -74,7 +90,7 @@ class App extends React.Component {
               <div className='container'>
                 <div className='leftContainer'>
                   <div className='profilebox'>
-                    <ProfileBox {...this.state} openModal={this.openModal}/>
+                    <ProfileBox {...this.state.profile} openModal={this.openModal}/>
                   </div>
                   <div className='recommendtask'>
                   
@@ -82,7 +98,7 @@ class App extends React.Component {
                 </div>
                 <div className='bodyContainer'>
                   <div>
-                    <SearchBox {...this.state} openModal={this.openModal}/>
+                    <SearchBox setMainState={this.setMainState} profilePic={this.state.profile? this.state.profile.picture:null} {...this.state.task} openModal={this.openModal}/>
                   </div>
                 </div>
                 <div className='rightContainer'>
