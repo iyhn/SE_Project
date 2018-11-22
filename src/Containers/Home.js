@@ -104,7 +104,7 @@ class App extends React.Component {
                 </div>
                 <div className='rightContainer'>
                   <div >
-                    <SuggestBox {...this.state.task} openModal={this.openModal}/>
+                    {this.state.task==null ? null:<SuggestBox {...this.state.task} openModal={this.openModal}/>}
                   </div>
                 </div>
               </div>
