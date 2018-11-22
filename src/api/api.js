@@ -57,8 +57,6 @@ api.signup = (body) => (
     })
 )
 
-
-
 api.profile = (id) => (
     call(`/profile/?id=${id}`,{
         method: 'GET'

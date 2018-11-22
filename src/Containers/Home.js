@@ -4,6 +4,7 @@ import api from '../api/api';
 import HeaderContainer from './HeaderContainer';
 import Loading from '../Components/Loading';
 import ProfileBox from '../Components/ProfileBox';
+import SuggestBox from '../Components/SuggestBox';
 import SearchBox from '../Components/SearchBox';
 import Modal from './Modal';
 import './Home.css';
@@ -102,8 +103,8 @@ class App extends React.Component {
                   </div>
                 </div>
                 <div className='rightContainer'>
-                  <div className='recommend'>
-
+                  <div >
+                    <SuggestBox {...this.state.task} openModal={this.openModal}/>
                   </div>
                 </div>
               </div>

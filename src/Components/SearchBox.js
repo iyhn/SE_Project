@@ -5,6 +5,7 @@ import './css/Profile.css';
 import dot from '../dot.png';
 import heart from '../heart2.png';
 import './css/SearchBox.css';
+import './css/ProfileBox.css';
 
 const post = (setMainState) => {
     api.postTask({
@@ -28,6 +29,7 @@ const reset = () =>{
         list[i].value=null;
     }
 }
+
 
 const content = (props) => {
 
