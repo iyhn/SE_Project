@@ -66,8 +66,6 @@ class App extends React.Component {
 
     }
   }
-
-  
   
   reset = () =>{
     let list = document.getElementsByName('postInput');

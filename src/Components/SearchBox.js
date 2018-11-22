@@ -42,22 +42,6 @@ const content = (props) => {
                 <div className='wage'>Wage: {props.wage}</div>
                 <div className='position'>Position: {props.position}</div>
             </div>   
-            
-            {/* <table style={{tableLayout: 'fixed', width:'100%'}}>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img src={img} style={{width:'100%', borderRadius:'50%'}}/>
-                        </td>
-                        <td colSpan="4" style={{paddingLeft:'20px'}}>
-                        {poster} <br/>
-                        หน้าที่<br/>
-                        รายได้ <br/>
-                        หมายเหตุ
-                        </td>
-                    </tr>
-                </tbody>
-            </table> */}
             <div className='border'/>
             <div className='author'>
                 <div style={{position:'relative', width:'100%'}}>
