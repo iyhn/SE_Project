@@ -11,7 +11,11 @@ const SuggestBox = ({openModal,...props}) => (
                 <div className="editHover" onClick={()=>openModal(Task)}>
                 </div>
                 <div className='eachbox'>
-                    <div className='tasktopic'>{props[0].topic}</div>
+                    <div className='tasktopic'>{props[0].topic}
+                        <div className='picbox'>
+                            <img src={props[0].picture} className='picAuthor'/>
+                        </div>
+                    </div>
                     <div className='taskwage'>{'Wage : '+props[0].wage}</div>
                 </div>
             </div>
@@ -21,7 +25,12 @@ const SuggestBox = ({openModal,...props}) => (
                 <div className="editHover" onClick={()=>openModal(Task)}>
                 </div>
                 <div className='eachbox'>
-                    <div className='tasktopic'>{props[1].topic}</div>
+                    <div className='tasktopic'>
+                        {props[1].topic}
+                        <div className='picbox'>
+                            <img src={props[1].picture} className='picAuthor'/>
+                        </div>
+                    </div>
                     <div className='taskwage'>{'Wage : '+props[1].wage}</div>
                 </div>
             </div>
@@ -31,7 +40,42 @@ const SuggestBox = ({openModal,...props}) => (
                 <div className="editHover" onClick={()=>openModal(Task)}>
                 </div>
                 <div className='eachbox'>
-                    <div className='tasktopic'>{props[2].topic}</div>
+                    <div className='tasktopic'>
+                        {props[2].topic}
+                        <div className='picbox'>
+                            <img src={props[2].picture} className='picAuthor'/>
+                        </div>
+                    </div>
+                    <div className='taskwage'>{'Wage : '+props[2].wage}</div>
+                </div>
+            </div>
+        </div>
+        <div style={{position: 'relative'}}>
+            <div className='boxshape'>
+                <div className="editHover" onClick={()=>openModal(Task)}>
+                </div>
+                <div className='eachbox'>
+                    <div className='tasktopic'>
+                        {props[2].topic}
+                        <div className='picbox'>
+                            <img src={props[2].picture} className='picAuthor'/>
+                        </div>
+                    </div>
+                    <div className='taskwage'>{'Wage : '+props[2].wage}</div>
+                </div>
+            </div>
+        </div>
+        <div style={{position: 'relative'}}>
+            <div className='boxshape'>
+                <div className="editHover" onClick={()=>openModal(Task)}>
+                </div>
+                <div className='eachbox'>
+                    <div className='tasktopic'>
+                        {props[2].topic}
+                        <div className='picbox'>
+                            <img src={props[2].picture} className='picAuthor'/>
+                        </div>
+                    </div>
                     <div className='taskwage'>{'Wage : '+props[2].wage}</div>
                 </div>
             </div>
