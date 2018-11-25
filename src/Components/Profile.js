@@ -127,10 +127,11 @@ const Profile = ({closeModal, setMainState, ...props}) => {
                         <div className='historybox'>
                             <div style={{position: 'relative'}}>
                             <div className='profileboxshape'>
-                                <div className="hiseditHover">
-                                </div>
                                 <div className='profileeachbox'>
                                     <div className='profiletopic'>Task name
+                                    </div>
+                                    <div className='reviewDetail'>
+                                        Detail skdjnvgklsfmg;lsgmlskrgm;dmkajnsfjkbndsfgnaelnglakfngkjafdglssdamvjnklsdnbklwndbksndkjnsdjknskjfdslkdnvbl;scmsdlk
                                     </div>
                                 </div>
                             </div>
@@ -138,10 +139,11 @@ const Profile = ({closeModal, setMainState, ...props}) => {
 
                             <div style={{position: 'relative'}}>
                             <div className='profileboxshape'>
-                                <div className="hiseditHover">
-                                </div>
                                 <div className='profileeachbox'>
                                     <div className='profiletopic'>Task name
+                                    </div>
+                                    <div className='reviewDetail'>
+                                        GodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGod
                                     </div>
                                 </div>
                             </div>
@@ -149,10 +151,11 @@ const Profile = ({closeModal, setMainState, ...props}) => {
 
                             <div style={{position: 'relative'}}>
                             <div className='profileboxshape'>
-                                <div className="hiseditHover">
-                                </div>
                                 <div className='profileeachbox'>
                                     <div className='profiletopic'>Task name
+                                    </div>
+                                    <div className='reviewDetail'>
+                                        lakfnbekljqefan;lkdhbmajoperfmngjvierahseuojvgamoptbanop[jniasjbkl;ksgonkjsorergknadfknhaergiuaerbgualngiorhaghearigaekjgnv
                                     </div>
                                 </div>
                             </div>
@@ -166,14 +169,48 @@ const Profile = ({closeModal, setMainState, ...props}) => {
                         <div className='historybox'>
                             <div style={{position: 'relative'}}>
                             <div className='profileboxshape'>
-                                <div className="hiseditHover">
-                                </div>
                                 <div className='profileeachbox'>
                                     <div className='profiletopic'>Task name
+                                    </div>
+                                    <div className='reviewDetail'>
+                                        lakfnbekljqefan;lkdhbmajoperfmngjvierahseuojvgamoptbanop[jniasjbkl;ksgonkjsorergknadfknhaergiuaerbgualngiorhaghearigaekjgnv
                                     </div>
                                 </div>
                             </div>
                             </div>
+                            <div style={{position: 'relative'}}>
+                            <div className='profileboxshape'>
+                                <div className='profileeachbox'>
+                                    <div className='profiletopic'>Task name
+                                    </div>
+                                    <div className='reviewDetail'>
+                                    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div style={{position: 'relative'}}>
+                            <div className='profileboxshape'>
+                                <div className='profileeachbox'>
+                                    <div className='profiletopic'>Task name
+                                    </div>
+                                    <div className='reviewDetail'>
+                                    BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div style={{position: 'relative'}}>
+                            <div className='profileboxshape'>
+                                <div className='profileeachbox'>
+                                    <div className='profiletopic'>Task name
+                                    </div>
+                                    <div className='reviewDetail'>
+                                    CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+                                    </div>
+                                </div>
+                            </div>
+                            </div>                
                         </div>
                     </div>
                 </div>
