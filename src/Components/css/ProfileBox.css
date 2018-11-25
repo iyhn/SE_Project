@@ -14,7 +14,7 @@
 }
 
 .editHover:hover::before{
-    content: 'View profile';
+    content: 'View Profile';
     z-index: 1001;
     position: absolute;
     left: 50%;

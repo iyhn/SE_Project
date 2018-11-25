@@ -1,3 +1,9 @@
+.profile-page{
+    margin-left: auto;
+    margin-right: auto;
+    overflow: scroll;
+}
+
 .sector-line{
     position: relative;
     width: 100%;
@@ -187,4 +193,133 @@
     color: #fff;
     vertical-align: middle;
     display: table-cell;
+}
+
+/* ----------------History Part--------------------- */
+
+.historypart{
+    margin-left: auto;
+    margin-right: auto;
+    left: auto;
+    right: auto;
+    width: fit-content;
+    height: fit-content;
+    /* padding: 50px; */
+    border-radius: 7px;
+    display: table;
+}
+
+.historybox{
+    position: relative;
+    z-index: 1002;
+    left: 0;
+    top: 0;
+    height: 100px;
+    width: 300px;
+    overflow: scroll;
+    border-radius: 7px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightgray;
+    
+}
+
+.profiletopic{
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+.profileeachbox{
+    position: absolute;
+    width: 100%;
+    left:0;
+    top:0;
+    height: 80px;
+    width: 300px;
+    background-color: white;
+    border-radius: 7px;
+    text-align: start;
+    line-height: 70px;
+    font-size: 1.1em;
+    border-style: solid;
+    border-color: whitesmoke;
+}
+
+.hiseditHover {
+    position: absolute;
+    opacity: 1;
+    transition: 0.3s;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+}
+
+.hiseditHover:hover{
+    background-color: rgba(0,0,0,0.4)
+}
+
+.hiseditHover:hover::before{
+    content: 'View Detail';
+    z-index: 1001;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%)translateY(-50%);
+    opacity: 1;
+    color: white;
+}
+
+.profileboxshape{
+    position: relative;
+    left:0;
+    top:0;
+    height: 80px;
+    width: 300px;
+    overflow: hidden;
+    border-radius: 7px;
+    vertical-align: middle;
+}
+
+/* --------------REVIEW PART----------------- */
+
+.profilereviewbox{
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gray;
+    padding: 10px;
+    display: table-cell;
+    border-radius: 7px;
+}
+
+.profilereviewheader{
+    font-weight: bold;
+    width: 100%;
+    height: 30px;
+}
+
+
+/* --------------REVIEW PART----------------- */
+
+.profiletaskbox{
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gray;
+    padding: 10px;
+    display: table-cell;
+    border-radius: 7px;
+}
+
+.profiletaskheader{
+    font-weight: bold;
+    width: 100%;
+    height: 30px;
 }
