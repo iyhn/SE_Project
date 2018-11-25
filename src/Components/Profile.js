@@ -131,7 +131,7 @@ const Profile = ({closeModal, setMainState, ...props}) => {
                                     <div className='profiletopic'>Task name
                                     </div>
                                     <div className='reviewDetail'>
-                                        Detail skdjnvgklsfmg;lsgmlskrgm;dmkajnsfjkbndsfgnaelnglakfngkjafdglssdamvjnklsdnbklwndbksndkjnsdjknskjfdslkdnvbl;scmsdlk
+                                        Detail skdjnvgklsfmg;lsgmlskrgm;dmkajnsfjkbndsfgnaelnglakfngkjafdglssdamvjnklsdnbklwndbksndkjnsdjknskjfdslkdnvbl;scmsdlkDetail skdjnvgklsfmg;lsgmlskrgm;dmkajnsfjkbndsfgnaelnglakfngkjafdglssdamvjnklsdnbklwndbksndkjnsdjknskjfdslkdnvbl;scmsdlkDetail skdjnvgklsfmg;lsgmlskrgm;dmkajnsfjkbndsfgnaelnglakfngkjafdglssdamvjnklsdnbklwndbksndkjnsdjknskjfdslkdnvbl;scmsdlkDetail skdjnvgklsfmg;lsgmlskrgm;dmkajnsfjkbndsfgnaelnglakfngkjafdglssdamvjnklsdnbklwndbksndkjnsdjknskjfdslkdnvbl;scmsdlkDetail skdjnvgklsfmg;lsgmlskrgm;dmkajnsfjkbndsfgnaelnglakfngkjafdglssdamvjnklsdnbklwndbksndkjnsdjknskjfdslkdnvbl;scmsdlk
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +173,11 @@ const Profile = ({closeModal, setMainState, ...props}) => {
                                     <div className='profiletopic'>Task name
                                     </div>
                                     <div className='reviewDetail'>
-                                        lakfnbekljqefan;lkdhbmajoperfmngjvierahseuojvgamoptbanop[jniasjbkl;ksgonkjsorergknadfknhaergiuaerbgualngiorhaghearigaekjgnv
+                                        <div>Task :</div>
+                                        <div>position :</div>
+                                        <div>Wage :</div>
+                                        <div>Detail :</div>
+                                        <div>Status :</div>
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +188,11 @@ const Profile = ({closeModal, setMainState, ...props}) => {
                                     <div className='profiletopic'>Task name
                                     </div>
                                     <div className='reviewDetail'>
-                                    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                                        <div>Task :</div>
+                                        <div>position :</div>
+                                        <div>Wage :</div>
+                                        <div>Detail :</div>
+                                        <div>Status :</div>
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +203,11 @@ const Profile = ({closeModal, setMainState, ...props}) => {
                                     <div className='profiletopic'>Task name
                                     </div>
                                     <div className='reviewDetail'>
-                                    BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+                                        <div>Task :</div>
+                                        <div>position :</div>
+                                        <div>Wage :</div>
+                                        <div>Detail :</div>
+                                        <div>Status :</div>
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +218,11 @@ const Profile = ({closeModal, setMainState, ...props}) => {
                                     <div className='profiletopic'>Task name
                                     </div>
                                     <div className='reviewDetail'>
-                                    CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+                                        <div>Task :</div>
+                                        <div>position :</div>
+                                        <div>Wage :</div>
+                                        <div>Detail :</div>
+                                        <div>Status :</div>
                                     </div>
                                 </div>
                             </div>
