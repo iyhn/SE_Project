@@ -248,6 +248,7 @@
     line-height: 20px;
     font-size: 1.1em;
     border-style: solid;
+    border-width: 1.5px;
     border-color: lightgray;
     overflow: scroll;
 }
