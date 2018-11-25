@@ -248,7 +248,7 @@
     line-height: 20px;
     font-size: 1.1em;
     border-style: solid;
-    border-color: whitesmoke;
+    border-color: lightgray;
     overflow: scroll;
 }
 
@@ -283,8 +283,8 @@
     top:0;
     height: 80px;
     width: 630px;
-    overflow: hidden;
     border-radius: 7px;
+    margin-bottom: 10px
 }
 
 /* --------------REVIEW PART----------------- */
