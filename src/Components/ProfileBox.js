@@ -1,5 +1,5 @@
 import React from 'react';
-import profile from './Review';
+import profile from './Profile';
 import './css/ProfileBox.css';
 import nuch from '../nuch.jpg';
 import star from '../star.png';

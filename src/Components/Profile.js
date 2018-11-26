@@ -44,7 +44,7 @@ const edit = (setMainState,back) => {
 }
 
 const Profile = ({closeModal, setMainState, ...props}) => {
-    let picpath = '../../' + 'code.jpg';
+    let state = JSON.parse(JSON.stringify(props));
     return (
             <div className='profile-page'>
                 <div class="profile-area" >
@@ -63,42 +63,42 @@ const Profile = ({closeModal, setMainState, ...props}) => {
                             <div class="line-1">
                                 <div class="row-header">First Name</div>
                                 <div class="dataout">
-                                    <input name='detail' disabled={true} value={props.profile.firstname} onChange={(e)=>{setMainState({firstname: e.target.value})}}></input>
+                                    <input name='detail' disabled={true} value={props.profile.firstname} onChange={(e)=>{let tmp=props.profile;setMainState({profile: {...tmp,firstname:e.target.value}})}}></input>
                                 </div>
                             </div>
                             <div class="sector-line"></div>
                             <div class="line-1">
                                 <div class="row-header">Last Name</div>
                                 <div class="dataout">
-                                    <input name='detail' disabled={true} value={props.profile.lastname} onChange={(e)=>{setMainState({lastname: e.target.value})}}></input>
+                                    <input name='detail' disabled={true} value={props.profile.lastname} onChange={(e)=>{let tmp=props.profile;setMainState({profile: {...tmp,lastname:e.target.value}})}}></input>
                                 </div>
                             </div>
                             <div class="sector-line"></div>
                             <div class="line-1">
                                 <div class="row-header">Date of Birth</div>
                                 <div class="dataout">
-                                    <input name='detail' disabled={true} value={moment(props.profile.dob).format('DD/MM/YYYY')} onChange={(e)=>{setMainState({dob: e.target.value})}}></input>
+                                    <input name='detail' disabled={true} value={moment(props.profile.dob).format('DD/MM/YYYY')} onChange={(e)=>{let tmp=props.profile;setMainState({profile: {...tmp,dob:e.target.value}})}}></input>
                                 </div>
                             </div>
                             <div class="sector-line"></div>
                             <div class="line-1">
                                 <div class="row-header">Nationality</div>
                                 <div class="dataout">
-                                <input name='detail' disabled={true} value={props.profile.nationality} onChange={(e)=>{setMainState({nationality: e.target.value})}}></input>
+                                <input name='detail' disabled={true} value={props.profile.nationality} onChange={(e)=>{let tmp=props.profile;setMainState({profile: {...tmp,nationality:e.target.value}})}}></input>
                                 </div>
                             </div>
                             <div class="sector-line"></div>
                             <div class="line-1">
                                 <div class="row-header">Email</div>
                                 <div class="dataout">
-                                    <input name='detail' disabled={true} value={props.profile.email} onChange={(e)=>{setMainState({email: e.target.value})}}></input>
+                                    <input name='detail' disabled={true} value={props.profile.email} onChange={(e)=>{let tmp=props.profile;setMainState({profile: {...tmp,email:e.target.value}})}}></input>
                                 </div>
                             </div>
                             <div class="sector-line"></div>
                             <div class="line-1">
                                 <div class="row-header">Address</div>
                                 <div class="dataout">
-                                    <input name='detail' disabled={true} value={props.profile.address} onChange={(e)=>{setMainState({address: e.target.value})}}></input>
+                                    <input name='detail' disabled={true} value={props.profile.address} onChange={(e)=>{let tmp=props.profile;setMainState({profile: {...tmp,address:e.target.value}})}}></input>
                                 </div>
                             </div>
                             <div class="sector-line"></div>

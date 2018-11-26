@@ -4,8 +4,31 @@ import Task from './Task';
 import './css/Profile.css';
 import dot from '../dot.png';
 import heart from '../heart2.png';
+import heartred from '../heartred.png'
 import './css/SearchBox.css';
 import './css/ProfileBox.css';
+
+const unlike = (e,setMainState) => {
+    api.unlike({
+        id:localStorage.id,
+        taskID:e.target.id
+    }).then((res)=>{
+        res.json().then((body)=>{
+            setMainState({task:body})
+        })
+    })
+}
+
+const like = (e,setMainState) => {
+    api.like({
+        id:localStorage.id,
+        taskID:e.target.id
+    }).then((res)=>{
+        res.json().then((body)=>{
+            setMainState({task:body})
+        })
+    })
+}
 
 const post = (setMainState) => {
     api.postTask({
@@ -31,7 +54,7 @@ const reset = () =>{
 }
 
 
-const content = (props) => {
+const content = (setMainState,props) => {
 
     return <div className='content' id={props.id}>
         <img src={dot} className='dot'/>
@@ -51,7 +74,7 @@ const content = (props) => {
                     
                     <span>{props.firstname+' '+props.lastname}</span>
                     
-                    <div className='heartDiv' onClick={()=>document.getElementById('likeList'+props.taskID).style.display='block'}><img src={heart} className='heart icon'/>0</div>
+                    <div className='heartDiv' onClick={(e)=>{if(!props.like.includes(Number(localStorage.id)))like(e,setMainState);else unlike(e,setMainState)}}><img id={props.taskID} src={props.like.includes(Number(localStorage.id))? heartred:heart} className='heart icon'/><span onClick={()=>{if(document.getElementById('likeList'+props.taskID).style.display !=='block')document.getElementById('likeList'+props.taskID).style.display='block';else document.getElementById('likeList'+props.taskID).style.display='none'}}>{props.like.length}</span></div>
                     <div className='likeList' id={'likeList'+props.taskID}><div className='innerLikeList'></div></div>
                 </div>
                 
@@ -60,11 +83,11 @@ const content = (props) => {
     </div>
 }
 
-const makeContent = (props) => {
+const makeContent = (setMainState,props) => {
     console.log('props')
     let result=[];
     for(let r in props){
-        result.push(content(props[r]));
+        result.push(content(setMainState,props[r]));
     }
     return <div>{result}</div>;
 }
@@ -102,7 +125,7 @@ const SearchBox = ({profilePic, setMainState, openModal, ...props}) => (
         {/* {content(interLogo, 'Inter Restaurant')}
         {content(exe, 'Apisith Vongso')}
         {content(jen, 'Thitiphan Semangern')} */}
-        {makeContent(props)}
+        {makeContent(setMainState,props)}
     </div>
 )
 

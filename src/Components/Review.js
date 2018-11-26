@@ -16,3 +16,10 @@ const Review = ({closeModal, setMainState, ...props}) => {
 }
 
 export default Review;
+
+// CREATE TABLE `se_project`.`task_interest` (
+//     `userID` INT NOT NULL,
+//     `taskID` INT NOT NULL,
+//     `likeDate` DATETIME NOT NULL,
+//     PRIMARY KEY (`userID`, `taskID`));
+  

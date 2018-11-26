@@ -86,4 +86,18 @@ api.fetchTask = () => (
 api.search = (keyword) => (
     call(`/task/search/?keyword=${keyword}`)
 )
+
+api.like = (body) => (
+    call(`/task/like`, {
+        method: 'POST',
+        body: body
+    })
+)
+
+api.unlike = (body) => (
+    call(`/task/unlike`, {
+        method: 'POST',
+        body: body
+    })
+)
 export default api;
