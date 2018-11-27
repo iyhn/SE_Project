@@ -30,4 +30,22 @@ userInfo.edit = (id,body) => (
     })
 )
 
+userInfo.review = (body) => (
+    new Promise ((resolve, reject) => {
+        connection.query('INSERT INTO review (userID,score,description,reviewerID,reviewDate,taskID) values(?,?,?,?,NOW(),?)', [body.userID,body.score,body.description,body.reviewerID,body.taskID] , (error,result) => {
+            if (error) return reject(error);
+            resolve(result);
+        })
+    })
+)
+
+userInfo.findReview = (id) => (
+    new Promise ((resolve, reject) => {
+        connection.query('SELECT review.*,user_info.*,task.topic,task.description as taskDes, task.wage, task.position FROM review,user_info,task WHERE userID=? and reviewerID=id and task.taskID=review.taskID', id , (error,result) => {
+            if (error) return reject(error);
+            resolve(result);
+        })
+    })
+)
+
 module.exports = userInfo;

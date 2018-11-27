@@ -2,25 +2,27 @@ const task = require('../models/task');
 const moment = require('moment');
 
 exports.findAll = (req, res, next) => {
-    console.log(req.query.id)
+    //console.log(req.query.id)
     task.findAll()
     .then(async(result)=>{
-        console.log(result.length)
+        //console.log(result.length)
         let message =[];
         for(const r in result){
             await task.countLike(result[r])
             .then((a)=>{
                 let b = []
+                let c = []
                 for(const i in a){
-                    console.log()
+                    // console.log(a[i])
                     b.push(a[i].userID)
+                    c.push({id:a[i].id,firstname:a[i].firstname,lastname:a[i].lastname,picture:a[i].picture,task:a[i].taskID})
                 }
-                message.push({like:b,...JSON.parse(JSON.stringify(result[r]))})
+                message.push({like:b,likeInfo:c,...JSON.parse(JSON.stringify(result[r]))})
             })
             // console.log(JSON.stringify(result[r]))
             
         }
-        console.log(message);
+        // console.log(message);
         res.json(message);
     })
     
@@ -68,11 +70,13 @@ exports.like = (req,res,next) => {
             await task.countLike(result[r])
             .then((a)=>{
                 let b = []
+                let c = []
                 for(const i in a){
-                    console.log()
+                    // console.log(a[i])
                     b.push(a[i].userID)
+                    c.push({id:a[i].id,firstname:a[i].firstname,lastname:a[i].lastname,picture:a[i].picture,task:a[i].taskID})
                 }
-                message.push({like:b,...JSON.parse(JSON.stringify(result[r]))})
+                message.push({like:b,likeInfo:c,...JSON.parse(JSON.stringify(result[r]))})
             })
             // console.log(JSON.stringify(result[r]))
             
@@ -94,11 +98,13 @@ exports.unlike = (req,res,next) => {
             await task.countLike(result[r])
             .then((a)=>{
                 let b = []
+                let c = []
                 for(const i in a){
-                    console.log()
+                    // console.log(a[i])
                     b.push(a[i].userID)
+                    c.push({id:a[i].id,firstname:a[i].firstname,lastname:a[i].lastname,picture:a[i].picture,task:a[i].taskID})
                 }
-                message.push({like:b,...JSON.parse(JSON.stringify(result[r]))})
+                message.push({like:b,likeInfo:c,...JSON.parse(JSON.stringify(result[r]))})
             })
             // console.log(JSON.stringify(result[r]))
             
@@ -108,3 +114,35 @@ exports.unlike = (req,res,next) => {
     })
     })
 }
+
+exports.accept = (req,res,next) => {
+    console.log(req.body)
+    task.accept(req.body)
+    .then(()=>{
+        console.log('0')
+        task.findAll()
+        .then(async(result)=>{
+        console.log('1')
+        let message =[];
+        for(const r in result){
+            await task.countLike(result[r])
+            .then((a)=>{
+
+                console.log('2')
+                let b = []
+                let c = []
+                for(const i in a){
+                    // console.log(a[i])
+                    b.push(a[i].userID)
+                    c.push({id:a[i].id,firstname:a[i].firstname,lastname:a[i].lastname,picture:a[i].picture,task:a[i].taskID})
+                }
+                message.push({like:b,likeInfo:c,...JSON.parse(JSON.stringify(result[r]))})
+            })
+            // console.log(JSON.stringify(result[r]))
+            
+        }
+        console.log(message);
+        res.json(message);
+    })
+    
+})}

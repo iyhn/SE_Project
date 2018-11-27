@@ -5,7 +5,7 @@ task = {}
 
 task.findAll = () => (
     new Promise ((resolve, reject) => {
-        connection.query('SELECT * FROM task,user_info WHERE task.createdUserID=user_info.id', (error,result) => {
+        connection.query('SELECT * FROM task,user_info WHERE task.createdUserID=user_info.id AND state=0', (error,result) => {
             if (error) return reject(error);
             resolve(result);
         })
@@ -32,9 +32,30 @@ task.unlike = (body) => (
 
 task.countLike = (body) => (
     new Promise ((resolve, reject) => {
-        connection.query('SELECT * FROM task_interest WHERE taskID=?',body.taskID, (error,result) => {
+        connection.query('SELECT task_interest.*,user_info.firstname,user_info.lastname,user_info.picture,user_info.id FROM task_interest,user_info WHERE taskID=? AND task_interest.userID=user_info.id',body.taskID, (error,result) => {
             if (error) return reject(error);
             resolve(result);
+        })
+    })
+)
+
+task.findAccept = (id) => (
+    new Promise ((resolve, reject) => {
+        connection.query('SELECT * FROM inprogress,task,user_info WHERE inprogress.taskID=task.taskID AND createdUserID=? AND inprogress.state=0 AND inprogress.userID=id',id, (error,result) => {
+            if (error) return reject(error);
+            resolve(result);
+        })
+    })
+)
+
+task.accept = (body) => (
+    new Promise ((resolve, reject) => {
+        connection.query('UPDATE task SET state=1 WHERE taskID=?',body.taskID, (error,result) => {
+            if (error) return reject(error);
+            connection.query('INSERT INTO inprogress VALUES(?,?,NOW(),0)',[body.id,body.taskID], (error,result) => {
+                if (error) return reject(error);
+                resolve(result);
+            })     
         })
     })
 )
@@ -69,6 +90,15 @@ task.findWithCreatedUser = (id) => (
 task.add = (body) => (
     new Promise ((resolve, reject) => {
         connection.query('INSERT INTO task (createdUserID, topic, description, wage, position) values (?,?,?,?,?)',[body.userID,body.topic,body.description,body.wage,body.position], (error,result) => {
+            if (error) return reject(error);
+            resolve(result);
+        })
+    })
+)
+
+task.done = (body) => (
+    new Promise ((resolve, reject) => {
+        connection.query('UPDATE inprogress SET state=1 WHERE taskID=?',body.taskID, (error,result) => {
             if (error) return reject(error);
             resolve(result);
         })
