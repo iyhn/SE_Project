@@ -4,9 +4,27 @@ import Task from './Task';
 import './css/Profile.css';
 import dot from '../dot.png';
 import heart from '../heart2.png';
+import check from '../check.png';
 import heartred from '../heartred.png'
 import './css/SearchBox.css';
 import './css/ProfileBox.css';
+
+const accept = (id,task,setMainState) => {
+    api.accept({
+        id: id,
+        taskID: task
+    }).then((res)=>{
+        res.json().then((body)=>{
+            api.profile(localStorage.id)
+            .then((a)=>{
+                a.json().then((body2)=>{
+                    setMainState({profile:body2})
+                })
+            })
+            setMainState({task:body})
+        })
+    })
+}
 
 const unlike = (e,setMainState) => {
     api.unlike({
@@ -53,6 +71,36 @@ const reset = () =>{
     }
 }
 
+const listLike = (setMainState,props,createdID) => {
+    return <tr>
+                    <td style={{verticalAlign:'middle'}}>
+                        <div style={{width:'25px',height:'25px',overflow:'hidden',borderRadius:'50%', marginRight:'5px'}}><img style={{height:'25px'}} src={props.picture}></img></div>
+                    </td>
+                    <td >
+                        {props.firstname + ' ' + props.lastname}
+                    </td>
+
+                    {localStorage.id == createdID ?
+                    <td>
+                        <img onClick={() => accept(props.id,props.task,setMainState)} src={check} style={{width:'10px',marginLeft:'10px'}}></img>
+                    </td> : null}
+                </tr>
+}
+
+const makeLikeList = (setMainState,props,createdID) => {
+    let result = [];
+    for (let i in props){
+        result.push(listLike(setMainState,props[i],createdID))
+    }
+    return <div>
+        <table style={{borderSpacing:'0 10px',tableLayout:'fixed',whiteSpace:'nowrap',lineHeight:'normal'}}>
+            <tbody>
+                {result}
+            </tbody>
+        </table>
+        
+    </div>
+}
 
 const content = (setMainState,props) => {
 
@@ -74,8 +122,8 @@ const content = (setMainState,props) => {
                     
                     <span>{props.firstname+' '+props.lastname}</span>
                     
-                    <div className='heartDiv' onClick={(e)=>{if(!props.like.includes(Number(localStorage.id)))like(e,setMainState);else unlike(e,setMainState)}}><img id={props.taskID} src={props.like.includes(Number(localStorage.id))? heartred:heart} className='heart icon'/><span onClick={()=>{if(document.getElementById('likeList'+props.taskID).style.display !=='block')document.getElementById('likeList'+props.taskID).style.display='block';else document.getElementById('likeList'+props.taskID).style.display='none'}}>{props.like.length}</span></div>
-                    <div className='likeList' id={'likeList'+props.taskID}><div className='innerLikeList'></div></div>
+                    {props.like ? <div className='heartDiv' ><img onClick={(e)=>{if(!props.like.includes(Number(localStorage.id)))like(e,setMainState);else unlike(e,setMainState)}} id={props.taskID} src={props.like.includes(Number(localStorage.id))? heartred:heart} className='heart icon'/><span onClick={()=>{if(document.getElementById('likeList'+props.taskID).style.display !=='block')document.getElementById('likeList'+props.taskID).style.display='block';else document.getElementById('likeList'+props.taskID).style.display='none'}}>{props.like.length}</span></div> : null}
+                    <div className='likeList' id={'likeList'+props.taskID}><div className='innerLikeList'>{makeLikeList(setMainState,props.likeInfo,props.createdUserID)}</div></div>
                 </div>
                 
             </div>
@@ -83,11 +131,12 @@ const content = (setMainState,props) => {
     </div>
 }
 
+
+
 const makeContent = (setMainState,props) => {
-    console.log('props')
     let result=[];
     for(let r in props){
-        result.push(content(setMainState,props[r]));
+        if(!props[r].state)result.push(content(setMainState,props[r]));
     }
     return <div>{result}</div>;
 }

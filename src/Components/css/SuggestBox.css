@@ -31,19 +31,19 @@
 }
 
 .eachbox{
-    position: absolute;
+    position: relative;
     width: 100%;
     left:0;
     top:0;
-    height: 300px;
-    width: 300px;
+    height: 80px;
+    width: 290px;
     background-color: white;
-    border-radius: 7px;
+    /* border-radius: 7px; */
     text-align: start;
     line-height: 40px;
-    font-size: 1.1em;
-    border-style: solid;
-    border-color: whitesmoke;
+    font-size: 0.9em;
+    /* border-style: solid;
+    border-color: whitesmoke; */
     padding-left: 10px;
 }
 
@@ -54,7 +54,7 @@
     height: 80px;
     width: 300px;
     overflow: hidden;
-    border-radius: 7px;
+    /* border-radius: 7px; */
 }
 
 .taskbox{
@@ -62,35 +62,42 @@
     z-index: 1002;
     left: 0;
     top: 0;
-    height: 200px;
+    height: auto;
     width: 300px;
-    overflow: scroll;
+    overflow: hidden;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
-    border-style: solid;
+    /* border-style: solid;
     border-width: 2px;
-    border-color: gray;
+    border-color: gray; */
 }
 
 .tasktopic{
-    font-weight: bold;
-    font-size: 18px;
+    top:15px;
+    line-height: 25px;
+    position: absolute;
+    left: 70px;
+    display: inline-block;
+    height: 80px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .taskwage{
+    display: inline-block;
+    width: 100px;
     text-align: start;
     font-size: 16px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .picbox{
-    position: relative;
-    top: 5px;
+    position: absolute;
+    top:15px;
     margin-right: 5px;
     display: inline-block;
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    line-height: 50px;
+    height: 50px;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -101,12 +108,16 @@
 }
 
 .taskboxheader{
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    text-align: center;
+    font-size: 1.2em;
     margin-top: 5px;
+    line-height: 60px;
     width: 300px;
-    height: 30px;
-    border-style: solid;
+    height: 60px;
+    /* border-style: solid;
     border-width: 2px;
-    border-color: gray;
+    border-color: gray; */
     background-color: white;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;

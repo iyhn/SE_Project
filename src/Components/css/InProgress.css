@@ -1,0 +1,46 @@
+.inprogress:hover{
+    transform: translateX(-50px)
+}
+
+.inprogress{
+    transition: 0.3s;
+    position: relative;
+    padding:0px 15px;
+    width: 290px;
+    height: 55px;
+    background-color: white;
+}
+
+.picboxIn{
+    position: absolute;
+    left: 15px;
+    top:11px;
+    display: inline-block;
+    width: 33px;
+    line-height: 50px;
+    height: 33px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.picAuthorIn {
+    position: absolute;
+    height: 100%;
+}
+
+.picboxIn2{
+    position: absolute;
+    left: 15px;
+    top:20px;
+    display: inline-block;
+    width: 43px;
+    line-height: 50px;
+    height: 43px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.picAuthorIn2 {
+    position: absolute;
+    height: 100%;
+}

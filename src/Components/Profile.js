@@ -2,6 +2,7 @@ import React from 'react';
 import './css/Profile.css';
 import nuch from '../nuch.jpg';
 import Cross from '../cross.png';
+import star from '../star.png';
 import moment from 'moment'
 import api from '../api/api';
 import './css/SuggestBox.css';
@@ -43,19 +44,61 @@ const edit = (setMainState,back) => {
     }
 }
 
+const ListH = (props) => {
+    return <div style={{position: 'relative'}}>
+    <div className='profileboxshape'>
+        <div className='profileeachbox'>
+            <div className='profiletopic'>{props.topic}</div>
+            <div className='reviewDetail'>
+                <div>position : {props.position}</div>
+                <div>Wage : {props.wage}</div>
+                <div>Detail : {props.taskDes}</div>
+            </div>
+        </div>
+    </div>
+    </div>
+}
+
+const List = (props) => {
+    return <div style={{position: 'relative'}}>
+    <div className='profileboxshape'>
+        <div className='profileeachbox'>
+            <div className='picboxIn2'>
+                <img src={props.picture} className='picAuthorIn2'/>
+            </div>
+            <div className='reviewDetail'>
+                Score: {props.score}<br/>
+                Description: {props.description}
+            </div>
+        </div>
+    </div>
+    </div>
+}
+
+const makeReviewList = (props,type) => {
+    let result = [];
+    for (let i in props){
+        if(type=='review')result.push(List(props[i]))
+        else if(type=='history')result.push(ListH(props[i]))
+    }
+    return <div>
+        {result}
+    </div>
+}
+
 const Profile = ({closeModal, setMainState, ...props}) => {
     let state = JSON.parse(JSON.stringify(props));
     return (
             <div className='profile-page'>
                 <div class="profile-area" >
-                    <div style={{float:'right',zIndex:1000}} >
-                        
+                    <div style={{padding:'30px',position:'absolute',width:'auto',height:'100px',top:'320px',fontSize:'2em',lineHeight:'100px',verticalAlign:'middle',textAlign:'center'}}>
+                        {props.profile.reviewScore.toFixed(1)} <img src={star} style={{position:'relative',left:'-20px',top:'35px',height:'100px'}}></img>
                     </div>
                     <div class="profile-text">Profile</div>
                     <div class="info">
                         <div class="picture-profile">
                             <div style={{width:'200px', height:'200px', borderRadius:'50%', overflow:'hidden', marginRight:'20px', marginTop:'15px', marginLeft:'-10px'}}>
-                                <img src={props.profile.picture} alt="Avatar" />
+                                <img src={props.profile.picture} style={{height:'200px'}} alt="Avatar" />
                             </div>
                         </div>
 
@@ -125,41 +168,7 @@ const Profile = ({closeModal, setMainState, ...props}) => {
                             Review History
                         </div>
                         <div className='historybox'>
-                            <div style={{position: 'relative'}}>
-                            <div className='profileboxshape'>
-                                <div className='profileeachbox'>
-                                    <div className='profiletopic'>Task name
-                                    </div>
-                                    <div className='reviewDetail'>
-                                        Detail skdjnvgklsfmg;lsgmlskrgm;dmkajnsfjkbndsfgnaelnglakfngkjafdglssdamvjnklsdnbklwndbksndkjnsdjknskjfdslkdnvbl;scmsdlkDetail skdjnvgklsfmg;lsgmlskrgm;dmkajnsfjkbndsfgnaelnglakfngkjafdglssdamvjnklsdnbklwndbksndkjnsdjknskjfdslkdnvbl;scmsdlkDetail skdjnvgklsfmg;lsgmlskrgm;dmkajnsfjkbndsfgnaelnglakfngkjafdglssdamvjnklsdnbklwndbksndkjnsdjknskjfdslkdnvbl;scmsdlkDetail skdjnvgklsfmg;lsgmlskrgm;dmkajnsfjkbndsfgnaelnglakfngkjafdglssdamvjnklsdnbklwndbksndkjnsdjknskjfdslkdnvbl;scmsdlkDetail skdjnvgklsfmg;lsgmlskrgm;dmkajnsfjkbndsfgnaelnglakfngkjafdglssdamvjnklsdnbklwndbksndkjnsdjknskjfdslkdnvbl;scmsdlk
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-
-                            <div style={{position: 'relative'}}>
-                            <div className='profileboxshape'>
-                                <div className='profileeachbox'>
-                                    <div className='profiletopic'>Task name
-                                    </div>
-                                    <div className='reviewDetail'>
-                                        GodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGodGod
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-
-                            <div style={{position: 'relative'}}>
-                            <div className='profileboxshape'>
-                                <div className='profileeachbox'>
-                                    <div className='profiletopic'>Task name
-                                    </div>
-                                    <div className='reviewDetail'>
-                                        lakfnbekljqefan;lkdhbmajoperfmngjvierahseuojvgamoptbanop[jniasjbkl;ksgonkjsorergknadfknhaergiuaerbgualngiorhaghearigaekjgnv
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
+                            {makeReviewList(props.profile.review,'review')}
                         </div>
                     </div>
                     <div className='profiletaskbox'>
@@ -167,66 +176,7 @@ const Profile = ({closeModal, setMainState, ...props}) => {
                             Task History
                         </div>
                         <div className='historybox'>
-                            <div style={{position: 'relative'}}>
-                            <div className='profileboxshape'>
-                                <div className='profileeachbox'>
-                                    <div className='profiletopic'>Task name
-                                    </div>
-                                    <div className='reviewDetail'>
-                                        <div>Task :</div>
-                                        <div>position :</div>
-                                        <div>Wage :</div>
-                                        <div>Detail :</div>
-                                        <div>Status :</div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div style={{position: 'relative'}}>
-                            <div className='profileboxshape'>
-                                <div className='profileeachbox'>
-                                    <div className='profiletopic'>Task name
-                                    </div>
-                                    <div className='reviewDetail'>
-                                        <div>Task :</div>
-                                        <div>position :</div>
-                                        <div>Wage :</div>
-                                        <div>Detail :</div>
-                                        <div>Status :</div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div style={{position: 'relative'}}>
-                            <div className='profileboxshape'>
-                                <div className='profileeachbox'>
-                                    <div className='profiletopic'>Task name
-                                    </div>
-                                    <div className='reviewDetail'>
-                                        <div>Task :</div>
-                                        <div>position :</div>
-                                        <div>Wage :</div>
-                                        <div>Detail :</div>
-                                        <div>Status :</div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            <div style={{position: 'relative'}}>
-                            <div className='profileboxshape'>
-                                <div className='profileeachbox'>
-                                    <div className='profiletopic'>Task name
-                                    </div>
-                                    <div className='reviewDetail'>
-                                        <div>Task :</div>
-                                        <div>position :</div>
-                                        <div>Wage :</div>
-                                        <div>Detail :</div>
-                                        <div>Status :</div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>                
+                        {makeReviewList(props.profile.review,'history')}          
                         </div>
                     </div>
                 </div>

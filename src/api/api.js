@@ -100,4 +100,18 @@ api.unlike = (body) => (
         body: body
     })
 )
+
+api.accept = (body) => (
+    call('/task/accept',{
+        method: 'POST',
+        body: body
+    })
+)
+
+api.review = (body) => (
+    call('/profile/review',{
+        method: 'POST',
+        body: body
+    })
+)
 export default api;

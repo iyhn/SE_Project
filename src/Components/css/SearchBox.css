@@ -176,12 +176,12 @@ textarea{
 .likeList{
     display:none;
     position:absolute;
-    bottom: 0;
+    bottom: 15px;
     background-color:#fff;
     height: auto;
-    padding:20px;
-    width: 80px;
-    right:-140px;
+    padding: 5px 20px;
+    width: auto;
+    left: 105%;
     border-radius: 7px;
 }
 .innerLikeList{
@@ -193,7 +193,7 @@ textarea{
 .innerLikeList:after{
     z-index: 100;
     position: absolute;
-    bottom: -10px;
+    bottom: 0px;
     left: -20px;
     margin-left: -10px;
     content:'';

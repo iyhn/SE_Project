@@ -4,89 +4,41 @@ import nuch from '../nuch.jpg';
 import star from '../star.png';
 import Task from './Task';
 
+const List = (props) => {
+    return <div style={{position: 'relative'}}>
+                <div className='boxshape'>
+
+                    <div className='eachbox'>
+                        <div className='picbox'>
+                                <img src={props.picture} className='picAuthor'/>
+                        </div>
+                        <div className='tasktopic'>
+                            {props.topic}<br/>
+                            {'Wage : '+props.wage}
+                        </div>
+                    </div>
+                </div>
+            </div>
+}
+
+const makeList = (props) => {
+    let result = [];
+    for (let i in props){
+        if(i%3===0) result.push(List(props[i]))
+    }
+    return <div>
+        {result}
+    </div>
+}
+
 const SuggestBox = ({openModal,...props}) => (
     <div>
         <div className='taskboxheader'>
-            <div className='taskheadertext'>
-                SUGGESTION TASK
-            </div>
+                Suggestion Task
         </div>
         
         <div className='taskbox'>
-            <div style={{position: 'relative'}}>
-                <div className='boxshape'>
-                    <div className="taskeditHover" onClick={()=>openModal(Task)}>
-                    </div>
-                    <div className='eachbox'>
-                        <div className='tasktopic'>{props[0].topic}
-                            <div className='picbox'>
-                                <img src={props[0].picture} className='picAuthor'/>
-                            </div>
-                        </div>
-                        <div className='taskwage'>{'Wage : '+props[0].wage}</div>
-                    </div>
-                </div>
-            </div>
-            <div style={{position: 'relative'}}>
-                <div className='boxshape'>
-                    <div className="taskeditHover" onClick={()=>openModal(Task)}>
-                    </div>
-                    <div className='eachbox'>
-                        <div className='tasktopic'>
-                            {props[1].topic}
-                            <div className='picbox'>
-                                <img src={props[1].picture} className='picAuthor'/>
-                            </div>
-                        </div>
-                        <div className='taskwage'>{'Wage : '+props[1].wage}</div>
-                    </div>
-                </div>
-            </div>
-            <div style={{position: 'relative'}}>
-                <div className='boxshape'>
-                    <div className="taskeditHover" onClick={()=>openModal(Task)}>
-                    </div>
-                    <div className='eachbox'>
-                        <div className='tasktopic'>
-                            {props[2].topic}
-                            <div className='picbox'>
-                                <img src={props[2].picture} className='picAuthor'/>
-                            </div>
-                        </div>
-                        <div className='taskwage'>{'Wage : '+props[2].wage}</div>
-                    </div>
-                </div>
-            </div>
-            <div style={{position: 'relative'}}>
-                <div className='boxshape'>
-                    <div className="taskeditHover" onClick={()=>openModal(Task)}>
-                    </div>
-                    <div className='eachbox'>
-                        <div className='tasktopic'>
-                            {props[2].topic}
-                            <div className='picbox'>
-                                <img src={props[2].picture} className='picAuthor'/>
-                            </div>
-                        </div>
-                        <div className='taskwage'>{'Wage : '+props[2].wage}</div>
-                    </div>
-                </div>
-            </div>
-            <div style={{position: 'relative'}}>
-                <div className='boxshape'>
-                    <div className="taskeditHover" onClick={()=>openModal(Task)}>
-                    </div>
-                    <div className='eachbox'>
-                        <div className='tasktopic'>
-                            {props[2].topic}
-                            <div className='picbox'>
-                                <img src={props[2].picture} className='picAuthor'/>
-                            </div>
-                        </div>
-                        <div className='taskwage'>{'Wage : '+props[2].wage}</div>
-                    </div>
-                </div>
-            </div>
+            {makeList(props)}
         </div>
     </div>
 )

@@ -7,6 +7,8 @@ import ProfileBox from '../Components/ProfileBox';
 import SuggestBox from '../Components/SuggestBox';
 import SearchBox from '../Components/SearchBox';
 import Modal from './Modal';
+import InProgress from '../Components/InProgress';
+import bg from '../background.jpg'; 
 import './Home.css';
 import Profile from '../Components/Profile';
 
@@ -27,6 +29,7 @@ class App extends React.Component {
         if(body === 'jwt expired'){
           api.redirectLogin();
         }
+        console.log(body)
         this.setState({fetched: true,profile:body})
        
       })
@@ -40,9 +43,9 @@ class App extends React.Component {
     })
   };
 
-  setMainState = (state) => {
+  setMainState = (state,recall) => {
     console.log('dd')
-    this.setState(state,()=>console.log(this.state))
+    this.setState(state,recall)
   }
 
   viewProfile = () => {
@@ -89,7 +92,8 @@ class App extends React.Component {
               <div className='container'>
                 <div className='leftContainer'>
                   <div className='profilebox'>
-                    <ProfileBox {...this.state.profile} openModal={this.openModal}/>
+                    <ProfileBox {...this.state.profile} openModal={this.openModal} />
+                    <InProgress {...this.state.profile} openModal={this.openModal} setMainState={this.setMainState}/>
                   </div>
                   <div className='recommendtask'>
                   
