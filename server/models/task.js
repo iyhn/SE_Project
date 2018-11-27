@@ -3,6 +3,15 @@ const moment = require('moment')
 
 task = {}
 
+task.delete = (body) => (
+    new Promise ((resolve, reject) => {
+        connection.query('DELETE FROM task WHERE taskID=?',body.taskID, (error,result) => {
+            if (error) return reject(error);
+            resolve(result);
+        })
+    })
+)
+ 
 task.findAll = () => (
     new Promise ((resolve, reject) => {
         connection.query('SELECT * FROM task,user_info WHERE task.createdUserID=user_info.id AND state=0', (error,result) => {

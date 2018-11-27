@@ -114,4 +114,11 @@ api.review = (body) => (
         body: body
     })
 )
+
+api.delete = (body) => (
+    call('/task/delete',{
+        method: 'POST',
+        body: body
+    })
+)
 export default api;

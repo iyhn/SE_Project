@@ -2,12 +2,22 @@ import React from 'react';
 import api from '../api/api';
 import Task from './Task';
 import './css/Profile.css';
-import dot from '../dot.png';
+import dot from '../cross.png';
 import heart from '../heart2.png';
 import check from '../check.png';
 import heartred from '../heartred.png'
 import './css/SearchBox.css';
 import './css/ProfileBox.css';
+
+const deleteTask = (id,setMainState) => {
+    api.delete({
+        taskID: id
+    }).then((res) =>{
+        res.json().then((body)=>{
+            setMainState({task:body})
+        })
+    })
+}
 
 const accept = (id,task,setMainState) => {
     api.accept({
@@ -105,7 +115,7 @@ const makeLikeList = (setMainState,props,createdID) => {
 const content = (setMainState,props) => {
 
     return <div className='content' id={props.id}>
-        <img src={dot} className='dot'/>
+        {localStorage.id==props.createdUserID ? <img onClick={()=>deleteTask(props.taskID,setMainState)} src={dot} className='dot'/> : null}
         <div className='contentContainer' id={props.id}>
             <div style={{position:'relative',height:'215px'}}>
                 <div className='topic'>{props.topic}</div>

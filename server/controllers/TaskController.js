@@ -146,3 +146,31 @@ exports.accept = (req,res,next) => {
     })
     
 })}
+
+exports.delete = (req,res,next) => {
+    task.delete(req.body)
+    .then(()=>{
+        task.findAll()
+        .then(async(result)=>{
+        console.log(result.length)
+        let message =[];
+        for(const r in result){
+            await task.countLike(result[r])
+            .then((a)=>{
+                let b = []
+                let c = []
+                for(const i in a){
+                    // console.log(a[i])
+                    b.push(a[i].userID)
+                    c.push({id:a[i].id,firstname:a[i].firstname,lastname:a[i].lastname,picture:a[i].picture,task:a[i].taskID})
+                }
+                message.push({like:b,likeInfo:c,...JSON.parse(JSON.stringify(result[r]))})
+            })
+            // console.log(JSON.stringify(result[r]))
+            
+        }
+        console.log(message);
+        res.json(message);
+    })
+    })
+}
