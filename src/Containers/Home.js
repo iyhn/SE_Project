@@ -10,7 +10,7 @@ import Modal from './Modal';
 import InProgress from '../Components/InProgress';
 import bg from '../background.jpg'; 
 import './Home.css';
-import Profile from '../Components/Profile';
+import ViewProfileModal from '../Components/ViewProfileModal';
 
 class App extends React.Component {
   
@@ -57,6 +57,18 @@ class App extends React.Component {
     document.getElementsByClassName('homePage')[0].style.left = '-100vw';
   }
 
+  viewProfile = (id) => {
+    api.profile(id).then( (res) => {
+      res.json().then(body=>{
+        if(body === 'jwt expired'){
+          api.redirectLogin();
+        }
+        console.log(body)
+        this.setState({targetProfile:body},()=>this.openModal(ViewProfileModal))
+      })
+    })
+  }
+
   openModal = (component) => {
     this.setState({modal: component}, ()=> setTimeout(() => {
       (document.getElementById('modal').style.opacity=1)
@@ -101,12 +113,12 @@ class App extends React.Component {
                 </div>
                 <div className='bodyContainer'>
                   <div>
-                    <SearchBox setMainState={this.setMainState} profilePic={this.state.profile? this.state.profile.picture:null} {...this.state.task} openModal={this.openModal}/>
+                    <SearchBox setMainState={this.setMainState} profilePic={this.state.profile? this.state.profile.picture:null} {...this.state.task} openModal={this.openModal} viewProfile={this.viewProfile}/>
                   </div>
                 </div>
                 <div className='rightContainer'>
                   <div >
-                    {this.state.task==null ? null:<SuggestBox {...this.state.task} openModal={this.openModal}/>}
+                    {this.state.task==null ? null:<SuggestBox {...this.state.task} openModal={this.openModal} viewProfile={this.viewProfile}/>}
                   </div>
                 </div>
               </div>

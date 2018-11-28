@@ -81,13 +81,13 @@ const reset = () =>{
     }
 }
 
-const listLike = (setMainState,props,createdID) => {
+const listLike = (viewProfile,setMainState,props,createdID) => {
     return <tr>
                     <td style={{verticalAlign:'middle'}}>
-                        <div style={{width:'25px',height:'25px',overflow:'hidden',borderRadius:'50%', marginRight:'5px'}}><img style={{height:'25px'}} src={props.picture}></img></div>
+                        <div style={{width:'25px',height:'25px',overflow:'hidden',borderRadius:'50%', marginRight:'5px'}}><img className='cursor' onClick={()=>viewProfile(props.id)}  style={{height:'25px'}} src={props.picture}></img></div>
                     </td>
                     <td >
-                        {props.firstname + ' ' + props.lastname}
+                        <span className='cursor' onClick={()=>viewProfile(props.id)}>{props.firstname + ' ' + props.lastname}</span>
                     </td>
 
                     {localStorage.id == createdID ?
@@ -97,10 +97,10 @@ const listLike = (setMainState,props,createdID) => {
                 </tr>
 }
 
-const makeLikeList = (setMainState,props,createdID) => {
+const makeLikeList = (viewProfile,setMainState,props,createdID) => {
     let result = [];
     for (let i in props){
-        result.push(listLike(setMainState,props[i],createdID))
+        result.push(listLike(viewProfile,setMainState,props[i],createdID))
     }
     return <div>
         <table style={{borderSpacing:'0 10px',tableLayout:'fixed',whiteSpace:'nowrap',lineHeight:'normal'}}>
@@ -112,7 +112,7 @@ const makeLikeList = (setMainState,props,createdID) => {
     </div>
 }
 
-const content = (setMainState,props) => {
+const content = (viewProfile,setMainState,props) => {
 
     return <div className='content' id={props.id}>
         {localStorage.id==props.createdUserID ? <img onClick={()=>deleteTask(props.taskID,setMainState)} src={dot} className='dot'/> : null}
@@ -127,12 +127,12 @@ const content = (setMainState,props) => {
             <div className='author'>
                 <div style={{position:'relative', width:'100%'}}>
                     <div style={{position:'relative',top:'5px',marginRight:'5px',display:'inline-block',width:'25px',height:'25px',borderRadius:'50%',overflow:'hidden'}}>
-                        <img src={props.picture} className='picAuthor'/>
+                        <img onClick={()=>viewProfile(props.id)} src={props.picture} className='picAuthor cursor'/>
                     </div>
                     
-                    <span>{props.firstname+' '+props.lastname}</span>
+                    <span className='cursor' onClick={()=>viewProfile(props.id)}>{props.firstname+' '+props.lastname}</span>
                     {props.like ? <div className='heartDiv' ><img onClick={(e)=>{if(!props.like.includes(Number(localStorage.id)))like(e,setMainState);else unlike(e,setMainState)}} id={props.taskID} src={props.like.includes(Number(localStorage.id))? heartred:heart} className='heart icon'/><span className='numLike' onClick={()=>{if(document.getElementById('likeList'+props.taskID).style.display !=='block')document.getElementById('likeList'+props.taskID).style.display='block';else document.getElementById('likeList'+props.taskID).style.display='none'}}>{props.like.length}</span></div> : null}
-                    <div className='likeList' id={'likeList'+props.taskID}><div className='innerLikeList'>{makeLikeList(setMainState,props.likeInfo,props.createdUserID)}</div></div>
+                    <div className='likeList' id={'likeList'+props.taskID}><div className='innerLikeList'>{makeLikeList(viewProfile,setMainState,props.likeInfo,props.createdUserID)}</div></div>
                 </div>
                 
             </div>
@@ -142,15 +142,15 @@ const content = (setMainState,props) => {
 
 
 
-const makeContent = (setMainState,props) => {
+const makeContent = (viewProfile,setMainState,props) => {
     let result=[];
     for(let r in props){
-        if(!props[r].state)result.push(content(setMainState,props[r]));
+        if(!props[r].state)result.push(content(viewProfile,setMainState,props[r]));
     }
     return <div>{result}</div>;
 }
 
-const SearchBox = ({profilePic, setMainState, openModal, ...props}) => (
+const SearchBox = ({viewProfile,profilePic, setMainState, openModal, ...props}) => (
     <div>
             <div id='search' className='search'>
                 <div style={{position:'relative', height:'75px'}}>
@@ -183,7 +183,7 @@ const SearchBox = ({profilePic, setMainState, openModal, ...props}) => (
         {/* {content(interLogo, 'Inter Restaurant')}
         {content(exe, 'Apisith Vongso')}
         {content(jen, 'Thitiphan Semangern')} */}
-        {makeContent(setMainState,props)}
+        {makeContent(viewProfile,setMainState,props)}
     </div>
 )
 

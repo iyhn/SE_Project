@@ -213,3 +213,7 @@ textarea{
 .checkImg:hover{
     cursor: pointer;
 }
+
+.cursor:hover{
+    cursor: pointer;
+}
