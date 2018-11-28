@@ -20,6 +20,15 @@ task.delete = (body) => (
         })
     })
 )
+
+task.getAccepted = (body) => (
+    new Promise ((resolve, reject) => {
+        connection.query('SELECT inprogress.*,user_info.firstname,user_info.lastname,user_info.picture,user_info.id FROM inprogress,user_info WHERE inprogress.taskID=? AND user_info.id = inprogress.userID',body.taskID, (error,result) => {
+            if (error) return reject(error);
+            resolve(result);
+        })
+    })
+)
  
 task.findAll = () => (
     new Promise ((resolve, reject) => {

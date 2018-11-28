@@ -174,7 +174,7 @@ const SearchBox = ({viewProfile,profilePic, setMainState, openModal, ...props}) 
                         <span className="border"></span>
                     </div>
                     <select id='wageOption' name='postInput' className='wageOption'>
-                            <option value='บาท/วัน'>บาท/วัน</option>
+                            <option selected="selected" value='บาท/วัน'>บาท/วัน</option>
                             <option value='บาท/เดือน'>บาท/เดือน</option>
                     </select>
                     <textarea name='postInput' id="description"  placeholder='Description' style={{padding:'10px',width:'495px', height:'100px', marginTop:'10px', resize:'none', borderRadius:'7px'}}></textarea>

@@ -6,8 +6,9 @@ exports.findID = (req,res,next) => {
     .then(async(result)=>{
         message={}
         console.log(result[0].taskID)
-            await task.countLike(result[0])
-            .then((a)=>{
+            if(!result[0].state){
+                await task.countLike(result[0])
+                .then((a)=>{
                 let b = []
                 let c = []
                 for(const i in a){
@@ -16,7 +17,19 @@ exports.findID = (req,res,next) => {
                     c.push({id:a[i].id,firstname:a[i].firstname,lastname:a[i].lastname,picture:a[i].picture,task:a[i].taskID})
                 }
                 message={like:b,likeInfo:c,...JSON.parse(JSON.stringify(result[0]))};
-            }).catch((err)=>console.log(err))
+                }).catch((err)=>console.log(err))
+            }else if (result[0].state) {
+                await task.getAccepted(result[0])
+                .then((a)=>{
+                    let b = []
+                    for(const i in a){
+                        // console.log(a[i])
+                        b.push({id:a[i].id,firstname:a[i].firstname,lastname:a[i].lastname,picture:a[i].picture,taskID:a[i].taskID})
+                    }
+                    message={acceptedInfo:b,...JSON.parse(JSON.stringify(result[0]))};
+                    }).catch((err)=>console.log(err))
+            }
+            
             // console.log(JSON.stringify(result[r]))
             
         // console.log(message);

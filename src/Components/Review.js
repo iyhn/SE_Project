@@ -25,9 +25,9 @@ const submit = (setMainState,id,score,des,rid,tid) => {
 const Review = ({closeModal, setMainState, ...props}) => {
     return (
             
-            <div style={{position:'relative',left:'50%',top:'50%',transform:'translate(-50%,-50%)',height:'550px',width:'800px',backgroundColor:'WHITE',borderRadius:'7px'}}>
+            <div style={{position:'relative',left:'50%',top:'100px',transform:'translate(-50%,0)',height:'550px',width:'800px',backgroundColor:'WHITE',borderRadius:'7px'}}>
                 <table style={{position:'relative',top:'20px',left:'20px'}}>{console.log(props)}
-                    <tr>
+                    <tr>{console.log(props)}
                         <td rowSpan='9' style={{verticalAlign:'top'}}>
                             <div style={{height:'300px',width:'300px',overflow:'hidden', borderRadius:'7px',position:'relative',top:'35px'}}>
                                 <img src={props.reviewProfile.picture} style={{width:'300px'}}/>

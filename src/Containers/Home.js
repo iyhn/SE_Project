@@ -106,6 +106,7 @@ class App extends React.Component {
     return (
       <div onClick={(e) => {if(e.target.name != 'postInput'){document.getElementById('search').style.height='75px';this.reset()}}} style={{backgroundColor : "rgb(237,245,250)", width: '100vw', height: '100vh'}}>
         {this.state.fetched ? null : <Loading/>}
+        {console.log(this.state)}
         {this.state.modal ? <Modal setMainState={this.setMainState} component={this.state.modal} closeModal={this.closeModal} {...this.state}/> : null}
         <HeaderContainer setMainState={this.setMainState}/>
         <div className='all' style={{width:'100vw', overflow:'scroll'}}>
@@ -118,7 +119,7 @@ class App extends React.Component {
                 <div className='leftContainer'>
                   <div className='profilebox'>
                     <ProfileBox {...this.state.profile} openModal={this.openModal} />
-                    <InProgress {...this.state.profile} openModal={this.openModal} setMainState={this.setMainState}/>
+                    <InProgress {...this.state.profile} openModal={this.openModal} setMainState={this.setMainState} viewTask={this.viewTask}/>
                   </div>
                   <div className='recommendtask'>
                   

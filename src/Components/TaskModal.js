@@ -1,62 +1,37 @@
 import React from 'react';
 import './css/Profile.css';
-import star from '../star.png';
+import check from '../check.png';
 import moment from 'moment'
 import api from '../api/api';
+import modal from './Review';
 import './css/TaskModal.css';
 
-const cancel = (back) => {
-    
-    if(!document.getElementsByName('detail')[0].disabled){
-        for(var i=0;i<document.getElementsByName('detail').length;i++){
-            document.getElementsByName('detail')[i].disabled = 'true';
-            document.getElementById('edit').innerHTML = 'Edit';
-            document.getElementById('edit').style.backgroundColor = 'black';
-        }
-    }else {
-        back({modal: null});
-    }
-}
-
-const edit = (setMainState,back) => {
-    if(document.getElementsByName('detail')[0].disabled){
-        for(var i=0;i<document.getElementsByName('detail').length;i++){
-            document.getElementsByName('detail')[i].removeAttribute("disabled")
-            document.getElementById('edit').innerHTML = 'Save';
-            document.getElementById('edit').style.backgroundColor = 'green';
-        }
-    }else {
-        api.editProfile(localStorage.getItem('id'),{
-            firstname: document.getElementsByName('detail')[0].value,
-            lastname: document.getElementsByName('detail')[1].value,
-            dob: document.getElementsByName('detail')[2].value,
-            nationality: document.getElementsByName('detail')[3].value,
-            email: document.getElementsByName('detail')[4].value,
-            address: document.getElementsByName('detail')[5].value
-        }).then((res)=>{
-            res.json().then((body)=>{
-                setMainState(body)
-                cancel(setMainState);
+  const review = (props,id,setMainState,modal) => {
+    api.profile(id)
+    .then((res)=>{
+        res.json().then(body=>{
+            setMainState({reviewProfile:{task:props,...body},modal:modal})      
+          })
+    })
+ }
+  const accept = (id,task,setMainState) => {
+    api.accept({
+        id: id,
+        taskID: task
+    }).then((res)=>{
+        res.json().then((body)=>{
+            api.profile(localStorage.id)
+            .then((a)=>{
+                a.json().then((body2)=>{
+                    setMainState({profile:body2})
+                })
             })
+            setMainState({task:body,modal:null})
         })
-    }
-}
+    })
+  }
 
-const ListH = (props) => {
-    return <div style={{position: 'relative'}}>
-    <div className='profileboxshape'>
-        <div className='profileeachbox hs'>
-            <div className='profiletopic'>{props.topic}</div>
-            <div className='hisDetail'>
-                <span style={{marginRight:'10px'}}>position : {props.position}</span>
-                <span>Wage : {props.wage}</span>
-            </div>
-        </div>
-    </div>
-    </div>
-}
-
-const List = (props) => {
+const List = (setMainState,props) => {
     return <div className='contentContainer2' >
     <div className='picbox'>
         <img src={props.picture} className='picAuthor cursor'/>
@@ -64,21 +39,34 @@ const List = (props) => {
     <div className='nameLike'>
         {props.firstname + ' ' + props.lastname}
     </div>
+    <img className='checkImg checkTaskModal' onClick={() => {accept(props.id,props.task,setMainState)}} src={check} ></img>
 </div>
 }
 
-const makeList = (props) => {
+const makeList = (setMainState,props) => {
     let result = [];
     for (let i in props){
-        result.push(List(props[i]))
+        result.push(List(setMainState,props[i]))
     }
     return <div>
         {result}
     </div>
 }
 
+const makeListProgress = (setMainState,props) => {
+    return <div className='contentContainer2' >
+    <div className='picbox'>
+        <img src={props.picture} className='picAuthor cursor'/>
+    </div>
+    <div className='nameLike'>
+        {props.firstname + ' ' + props.lastname}
+    </div>
+    <span className='checkImg doneTaskModal' onClick={() => {review(props,props.id,setMainState,modal)}} >Done</span>
+</div>
+}
+
 const TaskModal = ({closeModal, setMainState, ...props}) => {
-    console.log(props);
+    console.log(closeModal);
     let state = JSON.parse(JSON.stringify(props));
     return (
         <div style={{position:'relative',display:'inline-block',left:'50%',top:'55px',transform:'translateX(-50%)'}}>
@@ -120,7 +108,8 @@ const TaskModal = ({closeModal, setMainState, ...props}) => {
                         Wachit Chaisitsak
                     </div>
                 </div> */}
-                {makeList(props.targetTask.likeInfo)}
+                {console.log(props)}
+                {props.targetTask.state ? makeListProgress(setMainState,props.targetTask.acceptedInfo[0]):makeList(setMainState,props.targetTask.likeInfo)}
             </div >
             
         </div>

@@ -19,3 +19,19 @@
     transform: translateY(-50%);
     font-size: 1.2em;
 }
+
+.checkTaskModal{
+    position: absolute;
+    width: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 25px;
+}
+
+.doneTaskModal{
+    position: absolute;
+    width: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 45px;
+}

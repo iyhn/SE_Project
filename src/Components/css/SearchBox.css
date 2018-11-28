@@ -123,6 +123,7 @@
 }
 
 .wageOption{
+    outline: none;
     height: 25px;
     position: absolute;
     font-size: 1em;

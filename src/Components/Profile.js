@@ -51,7 +51,7 @@ const ListH = (props) => {
             <div className='profiletopic'>{props.topic}</div>
             <div className='hisDetail'>
                 <span style={{marginRight:'10px'}}>position : {props.position}</span>
-                <span>Wage : {props.wage}</span>
+                <span>Wage : {props.wage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
             </div>
         </div>
     </div>
