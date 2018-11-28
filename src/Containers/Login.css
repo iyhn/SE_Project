@@ -56,7 +56,7 @@ bodyLogin{
     vertical-align: middle;
     text-align: right;
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 700%;
     font-weight: 700;
     text-transform: uppercase; 
@@ -75,7 +75,7 @@ bodyLogin{
     vertical-align: middle;
     text-align: left;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 700%;
     font-weight: 700;
     text-transform: uppercase; 
@@ -116,13 +116,13 @@ bodyLogin{
     color: white;
     margin: 8px;
     font-size: 0.7em;
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
 }
 .button-area{
     margin-top: 10px;
 }
 .log-in{
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 14px;
     padding-left: 15px;
     padding-right: 15px;
@@ -133,7 +133,7 @@ bodyLogin{
     font-weight: 700;
 }
 .sign-up{
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 14px;
     padding-left: 15px;
     padding-right: 15px;
@@ -199,7 +199,7 @@ color: #fff;
     margin-bottom: 30px;
     left: 0px;
     top: 0px;
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     color: black;
     font-size: 250%;
     font-weight: 700;
@@ -298,7 +298,7 @@ color: #fff;
 }
 
 .submit{
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 14px;
     padding: 9px 15px;
     background: black;
@@ -308,7 +308,7 @@ color: #fff;
 }
 
 .cancel2{
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 14px;
     padding: 9px 15px;
     background: rgb(100, 100, 100);

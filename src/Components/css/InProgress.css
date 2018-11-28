@@ -34,12 +34,12 @@
 
 .picboxIn2{
     position: absolute;
-    left: 15px;
-    top:20px;
+    left: 25px;
+    top:36px;
     display: inline-block;
-    width: 43px;
+    width: 50px;
     line-height: 50px;
-    height: 43px;
+    height: 50px;
     border-radius: 50%;
     overflow: hidden;
 }

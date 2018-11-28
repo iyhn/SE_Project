@@ -83,7 +83,7 @@ class App extends React.Component {
         {this.state.fetched ? null : <Loading/>}
         {this.state.modal ? <Modal setMainState={this.setMainState} component={this.state.modal} closeModal={this.closeModal} {...this.state}/> : null}
         <HeaderContainer setMainState={this.setMainState}/>
-        <div style={{width:'100vw', overflow:'scroll'}}>
+        <div className='all' style={{width:'100vw', overflow:'scroll'}}>
           <div className='homePage'>
             {/* <div className='profileContainer'>
               <Profile {...this.state} back={this.back} setMainState={this.setMainState}/>

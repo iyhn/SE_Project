@@ -67,7 +67,7 @@ const List = (props) => {
                 <img src={props.picture} className='picAuthorIn2'/>
             </div>
             <div className='reviewDetail'>
-                Score: {props.score}<br/>
+                <span style={{fontWeight:'bold', fontSize:'1.3em'}}>Score: </span>{props.score}<br/>
                 Description: {props.description}
             </div>
         </div>
@@ -171,6 +171,8 @@ const Profile = ({closeModal, setMainState, ...props}) => {
                             {makeReviewList(props.profile.review,'review')}
                         </div>
                     </div>
+                </div>
+                <div className='historypart h'>
                     <div className='profiletaskbox'>
                         <div className='profiletaskheader'>
                             Task History
