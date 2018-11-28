@@ -35,7 +35,7 @@
     width: 100%;
     left:0;
     top:0;
-    height: 80px;
+    height: 100px;
     width: 290px;
     background-color: white;
     /* border-radius: 7px; */
@@ -51,7 +51,7 @@
     position: relative;
     left:0;
     top:0;
-    height: 80px;
+    height: 100px;
     width: 300px;
     overflow: hidden;
     /* border-radius: 7px; */
@@ -73,12 +73,13 @@
 }
 
 .tasktopic{
-    top:15px;
+    top:50%;
+    transform: translateY(-50%);
     line-height: 25px;
     position: absolute;
-    left: 70px;
+    left: 80px;
     display: inline-block;
-    height: 80px;
+    height: auto;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -92,7 +93,8 @@
 
 .picbox{
     position: absolute;
-    top:15px;
+    left:18px;
+    top:25px;
     margin-right: 5px;
     display: inline-block;
     width: 50px;
