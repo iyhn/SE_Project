@@ -11,6 +11,7 @@ import InProgress from '../Components/InProgress';
 import bg from '../background.jpg'; 
 import './Home.css';
 import ViewProfileModal from '../Components/ViewProfileModal';
+import TaskModal from '../Components/TaskModal';
 
 class App extends React.Component {
   
@@ -69,6 +70,18 @@ class App extends React.Component {
     })
   }
 
+  viewTask = (id) => {
+    api.getTask(id).then( (res) => {
+      res.json().then(body=>{
+        if(body === 'jwt expired'){
+          api.redirectLogin();
+        }
+        console.log(body)
+        this.setState({targetTask:body},()=>this.openModal(TaskModal))
+      })
+    })
+  }
+
   openModal = (component) => {
     this.setState({modal: component}, ()=> setTimeout(() => {
       (document.getElementById('modal').style.opacity=1)
@@ -118,7 +131,7 @@ class App extends React.Component {
                 </div>
                 <div className='rightContainer'>
                   <div >
-                    {this.state.task==null ? null:<SuggestBox {...this.state.task} openModal={this.openModal} viewProfile={this.viewProfile}/>}
+                    {this.state.task==null ? null:<SuggestBox {...this.state.task} openModal={this.openModal} viewProfile={this.viewProfile} viewTask={this.viewTask}/>}
                   </div>
                 </div>
               </div>

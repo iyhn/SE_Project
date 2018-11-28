@@ -122,6 +122,16 @@
     transform: translateY(-20px)scale(0.7)
 }
 
+.wageOption{
+    height: 25px;
+    position: absolute;
+    font-size: 1em;
+    left: 150px;
+    top: 20px;
+    width: 100px !important;
+    font-size: 0.5em;
+}
+
 .divPostInput .placeholder{
     position: absolute;
     left: 0;

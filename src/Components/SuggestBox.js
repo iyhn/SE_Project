@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/SuggestBox.css';
 
-const List = (viewProfile,props) => {
+const List = (viewTask,viewProfile,props) => {
     return <div style={{position: 'relative'}}>
                 <div className='boxshape'>
 
@@ -10,7 +10,7 @@ const List = (viewProfile,props) => {
                                 <img onClick={()=>viewProfile(props.id)} src={props.picture} className='picAuthor cursor'/>
                         </div>
                         <div className='tasktopic'>
-                            {props.topic}<br/>
+                            <span className='cursor' onClick={()=>viewTask(props.taskID)}>{props.topic}</span><br/>
                             {'Wage : '+props.wage}
                         </div>
                     </div>
@@ -18,24 +18,24 @@ const List = (viewProfile,props) => {
             </div>
 }
 
-const makeList = (viewProfile,props) => {
+const makeList = (viewTask,viewProfile,props) => {
     let result = [];
     for (let i in props){
-        if(i%3===0) result.push(List(viewProfile,props[i]))
+        if(i%3===0) result.push(List(viewTask,viewProfile,props[i]))
     }
     return <div>
         {result}
     </div>
 }
 
-const SuggestBox = ({viewProfile,openModal,...props}) => (
+const SuggestBox = ({viewTask,viewProfile,openModal,...props}) => (
     <div>
         <div className='taskboxheader'>
                 Suggestion Task
         </div>
         
         <div className='taskbox'>
-            {makeList(viewProfile,props)}
+            {makeList(viewTask,viewProfile,props)}
         </div>
     </div>
 )

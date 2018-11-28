@@ -1,6 +1,29 @@
 const task = require('../models/task');
 const moment = require('moment');
 
+exports.findID = (req,res,next) => {
+    task.find(req.query.id)
+    .then(async(result)=>{
+        message={}
+        console.log(result[0].taskID)
+            await task.countLike(result[0])
+            .then((a)=>{
+                let b = []
+                let c = []
+                for(const i in a){
+                    // console.log(a[i])
+                    b.push(a[i].userID)
+                    c.push({id:a[i].id,firstname:a[i].firstname,lastname:a[i].lastname,picture:a[i].picture,task:a[i].taskID})
+                }
+                message={like:b,likeInfo:c,...JSON.parse(JSON.stringify(result[0]))};
+            }).catch((err)=>console.log(err))
+            // console.log(JSON.stringify(result[r]))
+            
+        // console.log(message);
+        res.json(message);
+    }).catch((err)=>console.log(err))
+}
+
 exports.findAll = (req, res, next) => {
     //console.log(req.query.id)
     task.findAll()

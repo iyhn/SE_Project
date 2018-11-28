@@ -1,0 +1,21 @@
+.m2{
+    width: 555px;
+    transform: translateX(-50%);
+    left: 50%;
+    height: auto;
+    padding: 0 0;
+}
+
+.contentContainer2{
+    position: relative;
+    width: 100%;
+    height: 100px;
+}
+
+.nameLike{
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+}

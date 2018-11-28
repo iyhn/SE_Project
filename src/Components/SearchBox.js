@@ -62,7 +62,7 @@ const post = (setMainState) => {
     api.postTask({
         userID: localStorage.getItem('id'),
         topic: document.getElementById('topic').value,
-        wage: document.getElementById('wage').value,
+        wage: document.getElementById('wage').value + ' ' + document.getElementById('wageOption').value,
         position: document.getElementById('position').value,
         description: document.getElementById('description').value
     }).then((res)=>{
@@ -115,22 +115,22 @@ const makeLikeList = (viewProfile,setMainState,props,createdID) => {
 const content = (viewProfile,setMainState,props) => {
 
     return <div className='content' id={props.id}>
-        {localStorage.id==props.createdUserID ? <img onClick={()=>deleteTask(props.taskID,setMainState)} src={dot} className='dot'/> : null}
+        {localStorage.id==props.createdUserID ? <img onClick={()=>deleteTask(props.taskID,setMainState)} src={dot} className='dot cursor'/> : null}
         <div className='contentContainer' id={props.id}>
             <div style={{position:'relative',height:'215px'}}>
                 <div className='topic'>{props.topic}</div>
                 <div className='description'>{props.description}</div>
-                <div className='wage'>Wage: {props.wage}</div>
+                <div className='wage'>Wage: {props.wage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
                 <div className='position'>Position: {props.position}</div>
             </div>   
             <div className='border'/>
             <div className='author'>
                 <div style={{position:'relative', width:'100%'}}>
-                    <div style={{position:'relative',top:'5px',marginRight:'5px',display:'inline-block',width:'25px',height:'25px',borderRadius:'50%',overflow:'hidden'}}>
+                    <div style={{left:'10px',position:'relative',top:'8px',marginRight:'5px',display:'inline-block',width:'25px',height:'25px',borderRadius:'50%',overflow:'hidden'}}>
                         <img onClick={()=>viewProfile(props.id)} src={props.picture} className='picAuthor cursor'/>
                     </div>
                     
-                    <span className='cursor' onClick={()=>viewProfile(props.id)}>{props.firstname+' '+props.lastname}</span>
+                    <span style={{position:'relative',left:'12px'}} className='cursor' onClick={()=>viewProfile(props.id)}>{props.firstname+' '+props.lastname}</span>
                     {props.like ? <div className='heartDiv' ><img onClick={(e)=>{if(!props.like.includes(Number(localStorage.id)))like(e,setMainState);else unlike(e,setMainState)}} id={props.taskID} src={props.like.includes(Number(localStorage.id))? heartred:heart} className='heart icon'/><span className='numLike' onClick={()=>{if(document.getElementById('likeList'+props.taskID).style.display !=='block')document.getElementById('likeList'+props.taskID).style.display='block';else document.getElementById('likeList'+props.taskID).style.display='none'}}>{props.like.length}</span></div> : null}
                     <div className='likeList' id={'likeList'+props.taskID}><div className='innerLikeList'>{makeLikeList(viewProfile,setMainState,props.likeInfo,props.createdUserID)}</div></div>
                 </div>
@@ -164,7 +164,7 @@ const SearchBox = ({viewProfile,profilePic, setMainState, openModal, ...props}) 
                 <div style={{position:'relative',marginTop:'20px', height:'175px',outline:'none'}}>
                     
                     <div className="divPostInput">
-                        <input name='postInput'  id="wage" type="text" placeholder="&nbsp;" />
+                        <input type='number' name='postInput'  id="wage" placeholder="&nbsp;" />
                         <span className="placeholder">Wage</span>
                         <span className="border"></span>
                     </div>
@@ -173,7 +173,10 @@ const SearchBox = ({viewProfile,profilePic, setMainState, openModal, ...props}) 
                         <span className="placeholder">Position</span>
                         <span className="border"></span>
                     </div>
-
+                    <select id='wageOption' name='postInput' className='wageOption'>
+                            <option value='บาท/วัน'>บาท/วัน</option>
+                            <option value='บาท/เดือน'>บาท/เดือน</option>
+                    </select>
                     <textarea name='postInput' id="description"  placeholder='Description' style={{padding:'10px',width:'495px', height:'100px', marginTop:'10px', resize:'none', borderRadius:'7px'}}></textarea>
                     {/* <input style={{position:'absolute',width:'250px',height:'30px'}}></input>
                     <input style={{position:'absolute',width:'250px',right:'0',height:'30px'}}></input> */}

@@ -121,4 +121,10 @@ api.delete = (body) => (
         body: body
     })
 )
+
+api.getTask = (id) => (
+    call(`/task/?id=${id}`,{
+        
+    })
+)
 export default api;
