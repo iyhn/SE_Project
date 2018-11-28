@@ -4,6 +4,28 @@ import './Login.css'
 
 class Login extends React.Component{
 
+    checkRequired = (e) => {
+        console.log(e.target.value !=null);
+        console.log(e.target.classList);
+        if(e.target.value =='') {
+            document.getElementById(e.target.id + 'Placeholder').classList.add('red');
+            document.getElementById(e.target.id + 'Border').classList.add('redborder');
+        }else {
+            document.getElementById(e.target.id + 'Placeholder').classList.remove('red');
+            document.getElementById(e.target.id + 'Border').classList.remove('redborder');
+        }
+    }
+
+    checkConfirmPassword = () => {
+        if(document.getElementById('confirmPassword').value != document.getElementById('signupPassword').value){
+            document.getElementById('confirmPassword' + 'Placeholder').classList.add('red');
+            document.getElementById('confirmPassword' + 'Border').classList.add('redborder');
+        }else {
+            document.getElementById('confirmPassword' + 'Placeholder').classList.remove('red');
+            document.getElementById('confirmPassword' + 'Border').classList.remove('redborder');
+        }
+    }
+
     login = () => {
         api.login({username: document.getElementById('loginUsername').value,password: document.getElementById('loginPassword').value})
         .then(res=>{
@@ -24,6 +46,10 @@ class Login extends React.Component{
     }
 
     signup = () => {
+        for(const i in document.getElementsByName('signup')){
+            if(document.getElementsByName('signup')[i].value==='') return alert("asdasdasdasdasd")
+        }
+        if(document.getElementById('confirmPassword').value!=document.getElementById('signupPassword')) return alert("asdasdasdasdasd")
         api.signup({
             username: document.getElementById('signupUsername').value, 
             password: document.getElementById('signupPassword').value,
@@ -67,70 +93,70 @@ class Login extends React.Component{
                                 <tr>
                                     <td>
                                         <div className="divSignupInput">
-                                            <input id='signupUsername' type="text" name="username" placeholder="&nbsp;"/>
-                                            <span className="placeholder">Username</span>
-                                            <span className="border"></span>
+                                            <input onChange={(e)=>this.checkRequired(e)} id='signupUsername' type="text" name="signup" placeholder="&nbsp;"/>
+                                            <span id='signupUsernamePlaceholder' className="placeholder">Username</span>
+                                            <span id='signupUsernameBorder' className="border"></span>
                                         </div>
                                     </td>
                                     <td>
                                         <div className="divSignupInput">
-                                            <input id='signupEmail' type="email" name="e-mail" placeholder="&nbsp;"/>
-                                            <span className="placeholder">Email</span>
-                                            <span className="border"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div className="divSignupInput">
-                                            <input id='signupPassword' type="password" name="password1" placeholder="&nbsp;"/>
-                                            <span className="placeholder">Password</span>
-                                            <span className="border"></span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="divSignupInput">
-                                            <input type="password" name="password2" placeholder="&nbsp;"/>
-                                            <span className="placeholder">Confirm Password</span>
-                                            <span className="border"></span>
+                                            <input onChange={(e)=>this.checkRequired(e)} id='signupEmail' type="email" name="signup" placeholder="&nbsp;"/>
+                                            <span id='signupEmailPlaceholder' className="placeholder">Email</span>
+                                            <span id='signupEmailBorder' className="border"></span>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <div className="divSignupInput">
-                                            <input id="signupFirstname" style={{color:'black'}} class="in" type="text" name="firstname"placeholder="&nbsp;"/>
-                                            <span className="placeholder">Firstname</span>
-                                            <span className="border"></span>
+                                            <input onChange={(e)=>this.checkRequired(e)} id='signupPassword' type="password" name="signup" placeholder="&nbsp;"/>
+                                            <span id='signupPasswordPlaceholder' className="placeholder">Password</span>
+                                            <span id='signupPasswordBorder' className="border"></span>
                                         </div>
                                     </td>
                                     <td>
                                         <div className="divSignupInput">
-                                            <input id="signupLastname" class="in" type="text" name="lastname"placeholder="&nbsp;"/>
-                                            <span className="placeholder">Lastname</span>
-                                            <span className="border"></span>
+                                            <input onBlur={()=>this.checkConfirmPassword()} id='confirmPassword' type="password" placeholder="&nbsp;"/>
+                                            <span id='confirmPasswordPlaceholder' className="placeholder">Confirm Password</span>
+                                            <span id='confirmPasswordBorder' className="border"></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div className="divSignupInput">
+                                            <input onChange={(e)=>this.checkRequired(e)} id="signupFirstname" style={{color:'black'}} class="in" type="text" name="signup"placeholder="&nbsp;"/>
+                                            <span id='signupFirstnamePlaceholder' className="placeholder">Firstname</span>
+                                            <span id='signupFirstnameBorder' className="border"></span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className="divSignupInput">
+                                            <input onChange={(e)=>this.checkRequired(e)} id="signupLastname" class="in" type="text" name="signup"placeholder="&nbsp;"/>
+                                            <span id='signupLastnamePlaceholder' className="placeholder">Lastname</span>
+                                            <span id='signupLastnameBorder' className="border"></span>
                                         </div>
                                     </td>
                                 </tr> 
                                 <tr>
                                     <td>
                                         <div className="divSignupInput">
-                                            <input id="signupDob" type="text" name="dateOfBirth"placeholder="&nbsp;" id='date' onFocus={()=>document.getElementById('date').type='date'}/>
-                                            <span className="placeholder">Date of birth</span>
-                                            <span className="border"></span>
+                                            <input id="signupDob" type="text" name="signup"placeholder="&nbsp;" id='date' onFocus={()=>document.getElementById('date').type='date'}/>
+                                            <span id='signupDobPlaceholder' className="placeholder">Date of birth</span>
+                                            <span id='signupDobBorder' className="border"></span>
                                         </div>
                                     </td>
                                     <td>
                                         <div className="divSignupInput">
-                                            <input id="signupNationality" type="text" name="nationality"placeholder="&nbsp;" />
-                                            <span className="placeholder">Nationality</span>
-                                            <span className="border"></span>
+                                            <input onChange={(e)=>this.checkRequired(e)} id="signupNationality" type="text" name="signup"placeholder="&nbsp;" />
+                                            <span id='signupNationalityPlaceholder' className="placeholder">Nationality</span>
+                                            <span id='signupNationalityBorder' className="border"></span>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colSpan='2'>
-                                        <textarea id="signupAddress" placeholder="&nbsp;"></textarea>
+                                        <textarea name='signup' id="signupAddress" placeholder="&nbsp;"></textarea>
                                         <span className="placeholderT">Address</span>
                                     </td>
                                 </tr>
