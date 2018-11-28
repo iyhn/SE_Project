@@ -21,7 +21,7 @@ exports.signin = (req, res, next) => {
             });
         }else {
             console.log('asdasdsa')
-            res.status(401).json('Incorect User or Password')
+            res.status(401).json('Incorrect User or Password')
         }
     })
 };

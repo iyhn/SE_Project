@@ -11,6 +11,10 @@
     background-color: white;
 }
 
+.doneDiv:hover{
+    cursor: pointer;
+}
+
 .picboxIn{
     position: absolute;
     left: 15px;

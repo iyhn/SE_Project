@@ -92,7 +92,7 @@ const listLike = (setMainState,props,createdID) => {
 
                     {localStorage.id == createdID ?
                     <td>
-                        <img onClick={() => accept(props.id,props.task,setMainState)} src={check} style={{width:'10px',marginLeft:'10px'}}></img>
+                        <img className='checkImg' onClick={() => accept(props.id,props.task,setMainState)} src={check} style={{width:'10px',marginLeft:'10px'}}></img>
                     </td> : null}
                 </tr>
 }
@@ -131,7 +131,7 @@ const content = (setMainState,props) => {
                     </div>
                     
                     <span>{props.firstname+' '+props.lastname}</span>
-                    {props.like ? <div className='heartDiv' ><img onClick={(e)=>{if(!props.like.includes(Number(localStorage.id)))like(e,setMainState);else unlike(e,setMainState)}} id={props.taskID} src={props.like.includes(Number(localStorage.id))? heartred:heart} className='heart icon'/><span onClick={()=>{if(document.getElementById('likeList'+props.taskID).style.display !=='block')document.getElementById('likeList'+props.taskID).style.display='block';else document.getElementById('likeList'+props.taskID).style.display='none'}}>{props.like.length}</span></div> : null}
+                    {props.like ? <div className='heartDiv' ><img onClick={(e)=>{if(!props.like.includes(Number(localStorage.id)))like(e,setMainState);else unlike(e,setMainState)}} id={props.taskID} src={props.like.includes(Number(localStorage.id))? heartred:heart} className='heart icon'/><span className='numLike' onClick={()=>{if(document.getElementById('likeList'+props.taskID).style.display !=='block')document.getElementById('likeList'+props.taskID).style.display='block';else document.getElementById('likeList'+props.taskID).style.display='none'}}>{props.like.length}</span></div> : null}
                     <div className='likeList' id={'likeList'+props.taskID}><div className='innerLikeList'>{makeLikeList(setMainState,props.likeInfo,props.createdUserID)}</div></div>
                 </div>
                 

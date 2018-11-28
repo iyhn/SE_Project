@@ -70,6 +70,10 @@
     right: 0;
 }
 
+.heart:hover{
+    cursor: pointer;
+}
+
 .heartDiv{
     position: absolute;
     display: inline-block;
@@ -174,6 +178,9 @@ textarea{
     top:180px;
     left:250px;
 }
+.numLike:hover{
+    cursor: pointer;
+}
 .likeList{
     display:none;
     position:absolute;
@@ -202,4 +209,7 @@ textarea{
     height: 0;
     border: 5px solid transparent;
     border-right-color: #fff;
+}
+.checkImg:hover{
+    cursor: pointer;
 }

@@ -7,13 +7,15 @@ class Login extends React.Component{
     checkRequired = (e) => {
         console.log(e.target.value !=null);
         console.log(e.target.classList);
-        if(e.target.value =='') {
-            document.getElementById(e.target.id + 'Placeholder').classList.add('red');
-            document.getElementById(e.target.id + 'Border').classList.add('redborder');
-        }else {
-            document.getElementById(e.target.id + 'Placeholder').classList.remove('red');
-            document.getElementById(e.target.id + 'Border').classList.remove('redborder');
-        }
+        if(document.getElementById(e.target.id + 'Placeholder')){
+            if(e.target.value =='') {
+                document.getElementById(e.target.id + 'Placeholder').classList.add('red');
+                document.getElementById(e.target.id + 'Border').classList.add('redborder');
+            }else {
+                document.getElementById(e.target.id + 'Placeholder').classList.remove('red');
+                document.getElementById(e.target.id + 'Border').classList.remove('redborder');
+            }
+        }   
     }
 
     checkConfirmPassword = () => {
@@ -46,10 +48,18 @@ class Login extends React.Component{
     }
 
     signup = () => {
+        let required = false;
         for(const i in document.getElementsByName('signup')){
-            if(document.getElementsByName('signup')[i].value==='') return alert("asdasdasdasdasd")
+            if(document.getElementsByName('signup')[i].value==='') {
+                if(document.getElementById(document.getElementsByName('signup')[i].id + 'Placeholder')){
+                    document.getElementById(document.getElementsByName('signup')[i].id + 'Placeholder').classList.add('red');
+                    document.getElementById(document.getElementsByName('signup')[i].id + 'Border').classList.add('redborder');
+                }
+                required=true;
+            }
         }
-        if(document.getElementById('confirmPassword').value!=document.getElementById('signupPassword')) return alert("asdasdasdasdasd")
+        if(required)return alert("Please fill all required field")
+        if(document.getElementById('confirmPassword').value!=document.getElementById('signupPassword').value) return alert("Confirm Password didn't match")
         api.signup({
             username: document.getElementById('signupUsername').value, 
             password: document.getElementById('signupPassword').value,
@@ -141,7 +151,7 @@ class Login extends React.Component{
                                 <tr>
                                     <td>
                                         <div className="divSignupInput">
-                                            <input id="signupDob" type="text" name="signup"placeholder="&nbsp;" id='date' onFocus={()=>document.getElementById('date').type='date'}/>
+                                            <input id="signupDob" type="text" name="signup"placeholder="&nbsp;" onFocus={()=>document.getElementById('signupDob').type='date'}/>
                                             <span id='signupDobPlaceholder' className="placeholder">Date of birth</span>
                                             <span id='signupDobBorder' className="border"></span>
                                         </div>
