@@ -19,6 +19,7 @@ class HeaderContainer extends React.Component{
       }
 
     render(){
+        console.log(this.props)
         return <Header search={this.search} onLogout={api.redirectLogin}/>
     }
 }

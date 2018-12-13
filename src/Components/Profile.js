@@ -97,7 +97,7 @@ const Profile = ({closeModal, setMainState, ...props}) => {
                     <div class="info">
                         <div class="picture-profile">
                             <div style={{width:'200px', height:'200px', borderRadius:'50%', overflow:'hidden', marginRight:'20px', marginTop:'15px', marginLeft:'-10px'}}>
-                                <img src={props.profile.picture} style={{height:'200px'}} alt="Avatar" />
+                                <img src={props.profile.picture} style={{position:'relative',left:'50%',transform:'translateX(-50%)',height:'200px'}} alt="Avatar" />
                             </div>
                         </div>
 

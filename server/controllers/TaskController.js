@@ -67,13 +67,24 @@ exports.findAll = (req, res, next) => {
 exports.search = (req,res,next) => {
     console.log(req.query.keyword)
     task.search(req.query.keyword)
-    .then((result)=>{
+    .then(async(result)=>{
         let message =[];
         for(const r in result){
+            await task.countLike(result[r])
+            .then((a)=>{
+                let b = []
+                let c = []
+                for(const i in a){
+                    // console.log(a[i])
+                    b.push(a[i].userID)
+                    c.push({id:a[i].id,firstname:a[i].firstname,lastname:a[i].lastname,picture:a[i].picture,task:a[i].taskID})
+                }
+                message.push({like:b,likeInfo:c,...JSON.parse(JSON.stringify(result[r]))})
+            })
             // console.log(JSON.stringify(result[r]))
-            message.push( JSON.parse(JSON.stringify(result[r])))
+            
         }
-        console.log(message);
+        // console.log(message);
         res.json(message);
     })
 }
