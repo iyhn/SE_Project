@@ -84,7 +84,7 @@ const reset = () =>{
 const listLike = (viewProfile,setMainState,props,createdID) => {
     return <tr>
                     <td style={{verticalAlign:'middle'}}>
-                        <div style={{width:'25px',height:'25px',overflow:'hidden',borderRadius:'50%', marginRight:'5px'}}><img className='cursor' onClick={()=>viewProfile(props.id)}  style={{height:'25px'}} src={props.picture}></img></div>
+                        <div style={{width:'25px',height:'25px',overflow:'hidden',borderRadius:'50%', marginRight:'5px'}}><img className='cursor' onClick={()=>viewProfile(props.id)}  style={{position:'relative',left:'50%',transform:'translateX(-50%)',height:'25px'}} src={props.picture}></img></div>
                     </td>
                     <td >
                         <span className='cursor' onClick={()=>viewProfile(props.id)}>{props.firstname + ' ' + props.lastname}</span>
@@ -155,7 +155,7 @@ const SearchBox = ({viewProfile,profilePic, setMainState, openModal, ...props}) 
             <div id='search' className='search'>
                 <div style={{position:'relative', height:'75px'}}>
                     <div style={{position:'absolute', top:'50%', transform:'translateY(-50%)', width:'50px', height:'50px', borderRadius:'50%', display:'inline-block', overflow:'hidden'}}>
-                        <img src={profilePic} style={{height:'100%'}}/>
+                        <img src={profilePic} style={{position:'relative',left:'50%',transform:'translateX(-50%)',height:'100%'}}/>
                     </div>
                     <div style={{position:'absolute',left:'90px' , width:'425px',height:'75px'}}>
                         <input name='postInput' id='topic' onFocus={()=>document.getElementById('search').style.height='350px'} style={{width:'100%', height:'100%',  fontSize:'1.2em', border:'none'}} placeholder='Post something . . . '></input>

@@ -65,7 +65,7 @@ class Login extends React.Component{
             password: document.getElementById('signupPassword').value,
             firstname: document.getElementById('signupFirstname').value,
             lastname: document.getElementById('signupLastname').value,
-            dob: document.getElementById('date').value,
+            dob: document.getElementById('signupDob').value,
             email: document.getElementById('signupEmail').value,
             address: document.getElementById('signupAddress').value,
             nationality: document.getElementById('signupNationality').value

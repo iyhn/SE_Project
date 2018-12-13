@@ -14,7 +14,7 @@ userInfo.find = (id) => (
 
 userInfo.add = (id,body) => (
     new Promise ((resolve, reject) => {
-        connection.query('INSERT INTO user_info values (?,?,?,?,?,?,?,?,?,?)', [id,body.firstname,body.lastname,'',body.dob,'',body.address,'',body.nationality,body.email] , (error,result) => {
+        connection.query('INSERT INTO user_info values (?,?,?,?,?,?,?,?,?,?)', [id,body.firstname,body.lastname,'',body.dob,'',body.address,'/profile/guess.jpeg',body.nationality,body.email] , (error,result) => {
             if (error) return reject(error);
             resolve(result);
         })
