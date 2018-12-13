@@ -89,7 +89,7 @@ task.accept = (body) => (
 
 task.search = (keyword) => (
     new Promise ((resolve, reject) => {
-        connection.query('SELECT * FROM task,user_info WHERE (topic LIKE ?) AND state=0 AND id=createdUserID', '%'+keyword+'%' , (error,result) => {
+        connection.query('SELECT * FROM task,user_info WHERE (topic LIKE ?) AND state=0 AND id=createdUserID ORDER BY taskID DESC', '%'+keyword+'%' , (error,result) => {
             if (error) return reject(error);
             resolve(result);
         })
