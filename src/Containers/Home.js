@@ -107,7 +107,7 @@ class App extends React.Component {
       <div onClick={(e) => {if(e.target.name != 'postInput'){document.getElementById('search').style.height='75px';this.reset()}}} style={{backgroundColor : "rgb(237,245,250)", width: '100vw', height: '100vh'}}>
         {this.state.fetched ? null : <Loading/>}
         {console.log(this.state)}
-        {this.state.modal ? <Modal setMainState={this.setMainState} component={this.state.modal} closeModal={this.closeModal} {...this.state}/> : null}
+        {this.state.modal ? <Modal viewProfile={this.viewProfile} setMainState={this.setMainState} component={this.state.modal} closeModal={this.closeModal} {...this.state}/> : null}
         <HeaderContainer setMainState={this.setMainState}/>
         <div className='all' style={{width:'100vw', overflow:'scroll'}}>
           <div className='homePage'>
@@ -127,7 +127,7 @@ class App extends React.Component {
                 </div>
                 <div className='bodyContainer'>
                   <div>
-                    <SearchBox setMainState={this.setMainState} profilePic={this.state.profile? this.state.profile.picture:null} {...this.state.task} openModal={this.openModal} viewProfile={this.viewProfile}/>
+                    <SearchBox setMainState={this.setMainState} profilePic={this.state.profile? this.state.profile.picture:null} {...this.state.task} openModal={this.openModal} viewTask={this.viewTask} viewProfile={this.viewProfile}/>
                   </div>
                 </div>
                 <div className='rightContainer'>

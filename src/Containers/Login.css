@@ -30,6 +30,7 @@ a:hover{
 }
 
 bodyLogin{
+    font-family: 'Bai Jamjuree', sans-serif !important;
     overflow: hidden;
     width: 100vw;
     height: 100vh;
@@ -56,6 +57,7 @@ bodyLogin{
     vertical-align: middle;
     text-align: right;
     color: black;
+    font-family: 'Bai Jamjuree', sans-serif;
     /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 700%;
     font-weight: 700;
@@ -75,6 +77,7 @@ bodyLogin{
     vertical-align: middle;
     text-align: left;
     color: white;
+    font-family: 'Bai Jamjuree', sans-serif;
     /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 700%;
     font-weight: 700;

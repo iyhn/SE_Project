@@ -112,13 +112,13 @@ const makeLikeList = (viewProfile,setMainState,props,createdID) => {
     </div>
 }
 
-const content = (viewProfile,setMainState,props) => {
+const content = (viewTask,viewProfile,setMainState,props) => {
 
     return <div className='content' id={props.id}>
         {localStorage.id==props.createdUserID ? <img onClick={()=>deleteTask(props.taskID,setMainState)} src={dot} className='dot cursor'/> : null}
         <div className='contentContainer' id={props.id}>
             <div style={{position:'relative',height:'215px'}}>
-                <div className='topic'>{props.topic}</div>
+                <div onClick={()=>viewTask(props.taskID)} className='topic cursor'>{props.topic}</div>
                 <div className='description'>{props.description}</div>
                 <div className='wage'>Wage: {props.wage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</div>
                 <div className='position'>Position: {props.position}</div>
@@ -142,15 +142,15 @@ const content = (viewProfile,setMainState,props) => {
 
 
 
-const makeContent = (viewProfile,setMainState,props) => {
+const makeContent = (viewTask,viewProfile,setMainState,props) => {
     let result=[];
     for(let r in props){
-        if(!props[r].state)result.push(content(viewProfile,setMainState,props[r]));
+        if(!props[r].state)result.push(content(viewTask,viewProfile,setMainState,props[r]));
     }
     return <div>{result}</div>;
 }
 
-const SearchBox = ({viewProfile,profilePic, setMainState, openModal, ...props}) => (
+const SearchBox = ({viewTask,viewProfile,profilePic, setMainState, openModal, ...props}) => (
     <div>
             <div id='search' className='search'>
                 <div style={{position:'relative', height:'75px'}}>
@@ -186,7 +186,7 @@ const SearchBox = ({viewProfile,profilePic, setMainState, openModal, ...props}) 
         {/* {content(interLogo, 'Inter Restaurant')}
         {content(exe, 'Apisith Vongso')}
         {content(jen, 'Thitiphan Semangern')} */}
-        {makeContent(viewProfile,setMainState,props)}
+        {makeContent(viewTask,viewProfile,setMainState,props)}
     </div>
 )
 

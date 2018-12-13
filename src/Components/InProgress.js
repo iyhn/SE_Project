@@ -21,7 +21,7 @@ const progressList = (viewTask,setMainState,openModal,props) => {
                     <img src={props.picture} className='picAuthorIn'/>
                 </div>
                 <div className='doneDiv' onClick={()=>review(props,props.userID,setMainState,openModal,Review)} style={{color:'white',fontSize:'0.8em',textAlign:'center',position:'absolute',right:'0',backgroundColor:'red',width:'50px',height:'100%'}}>Done</div>
-                <span onClick={()=>viewTask(props.taskID)} style={{width:'210px',overflow:'hidden',position:'absolute',left:'60px',height:'55px',fontSize:'0.9em'}}>{props.topic}</span>
+                <span className='cursor' onClick={()=>viewTask(props.taskID)} style={{width:'210px',overflow:'hidden',position:'absolute',left:'60px',height:'55px',fontSize:'0.9em'}}>{props.topic}</span>
             </div>
         </div>
 

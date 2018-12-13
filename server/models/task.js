@@ -32,7 +32,7 @@ task.getAccepted = (body) => (
  
 task.findAll = () => (
     new Promise ((resolve, reject) => {
-        connection.query('SELECT * FROM task,user_info WHERE task.createdUserID=user_info.id AND state=0', (error,result) => {
+        connection.query('SELECT * FROM task,user_info WHERE task.createdUserID=user_info.id AND state=0 ORDER BY taskID DESC', (error,result) => {
             if (error) return reject(error);
             resolve(result);
         })
